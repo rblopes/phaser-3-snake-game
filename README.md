@@ -1,4 +1,8 @@
-# Phaser 3 Demo Project
+<h1>
+    Snake Game: Phaser 3 Demo Project
+    <a href="https://david-dm.org/rblopes/phaser-3-snake-game" title="dependencies status"><img src="https://david-dm.org/rblopes/phaser-3-snake-game/status.svg"/></a>
+    <a href="https://david-dm.org/rblopes/phaser-3-snake-game?type=dev" title="devDependencies status"><img src="https://david-dm.org/rblopes/phaser-3-snake-game/dev-status.svg"/></a>
+</h1>
 
 A [Phaser 3][phsr] demo project powered by [Webpack][wbpk], based on the tutorial titled "Snake Plissken", published on [Phaser World #85][pw85]. Still a work in progress.
 
