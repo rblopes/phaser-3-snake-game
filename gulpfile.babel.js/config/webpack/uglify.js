@@ -1,12 +1,8 @@
 /*
- * `uglify` module
- * ===============
- *
  * UglifyJs plugin settings.
  */
 
-/* eslint-disable camelcase */
-module.exports = {
+export default {
   parallel: true,
   sourceMap: true,
   uglifyOptions: {
@@ -14,6 +10,7 @@ module.exports = {
       comments: false
     },
     compress: {
+      /* eslint-disable camelcase */
       comparisons: true,
       conditionals: true,
       dead_code: true,
@@ -23,6 +20,7 @@ module.exports = {
       negate_iife: false,
       unused: true,
       warnings: false
+      /* eslint-enable camelcase */
     }
   }
 };

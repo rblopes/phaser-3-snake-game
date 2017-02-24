@@ -11,7 +11,7 @@ A [Phaser 3][phsr] demo project powered by [Webpack][wbpk], based on the tutoria
 
 First, install dependencies using `npm install`. Then, play the sample game running `npm start`.
 
->   NOTE: It is highly recommended that you have at least Node.js version 6.11, and npm@5 installed to use this project.
+>   NOTE: It is highly recommended that you have at least Node.js version 6.11, and [Yarn](https://yarnpkg.com/) installed to use this project.
 
 
 ## License
