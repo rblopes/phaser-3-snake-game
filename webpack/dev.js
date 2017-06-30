@@ -13,27 +13,21 @@ const paths = require('./paths');
 
 module.exports = {
   context: paths.context,
-  entry: './scripts/index.js',
+  entry: {
+    vendor: ['phaser'],
+    app: './scripts/index.js'
+  },
 
   output: {
-    filename: 'app.js',
+    filename: '[name]-[chunkhash].bundle.js',
     path: paths.dist
   },
 
   module: {
     rules: [{
-      test: paths.libs.p2,
-      loader: 'expose-loader?p2'
-    }, {
-      test: paths.libs.PIXI,
-      loader: 'expose-loader?PIXI'
-    }, {
-      test: paths.libs.Phaser,
-      loader: 'expose-loader?Phaser'
-    }, {
       test: /\.js$/,
       use: 'babel-loader',
-      exclude: /node_modules/
+      exclude: /node_modules|vendor/
     }]
   },
 
@@ -41,12 +35,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './index.html',
       inject: true
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      names: ['vendor', 'manifest']
     })
   ],
-
-  resolve: {
-    alias: paths.libs
-  },
 
   devtool: 'cheap-source-map',
 

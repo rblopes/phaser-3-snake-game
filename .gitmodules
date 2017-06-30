@@ -1,0 +1,3 @@
+[submodule "phaser"]
+  path = vendor/phaser
+  url = https://github.com/rblopes/phaser.git
