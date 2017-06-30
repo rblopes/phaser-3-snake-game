@@ -1,23 +1,25 @@
-# [Snake + Phaser 3](https://example.com/my-game/)
+# Snake + Phaser 3
 
->   A Phaser 3 demo based on the &amp;#34;Snake Plissken&amp;#34; tutorial, published on Phaser World #85
+A [Phaser 3][phsr] demo project powered by [Webpack][wbpk], based on the tutorial titled "Snake Plissken", published on [Phaser World #85][pw85]. Still work in progress.
 
----
 
-Congrats! To manage your project and start developing your new game right away,
-the following npm scripts are available:
+## Instructions
 
->   TIP: You can also use Gulp to manage development tasks.
+>   NOTE: It is highly recomended that you have at least Node.js version 6.11, and npm@5 installed to use this project.
 
-The following npm scripts are also available:
+This project embeds the Phaser 3 repository as a Git submodule. Use the `--recurse-submodules` option when cloning this repository, as follows:
 
-```sh
-npm start         # Or `gulp`: launches the project development environment.
-npm run dist      # Or `gulp dist`: Prepares the game for distribution.
-npm run lint      # Or `gulp lint`: Checks scripts for linting issues.
-npm run clean     # Or `gulp clean`: Deletes build files.
-npm run test-dist # Build and run your project
+```
+git clone https://github.com/rblopes/phaser-3-snake-game.git --recurse-submodules
 ```
 
-Should you consider distributing your game as an open source project, please
-choose and [include a LICENSE file](http://choosealicense.com/) for your project.
+After that, install the project dependencies using npm. Run the project using `npm start`.
+
+
+## License
+
+This project is distributed under the terms of the [MIT License](LICENSE.md). Portions of the game code are derived from a previous work by Richard Davey ([@photonstorm](https://github.com/photonstorm)).
+
+[wbpk]: https://webpack.js.org/
+[pw85]: https://madmimi.com/p/03594a
+[phsr]: https://github.com/photonstorm/phaser

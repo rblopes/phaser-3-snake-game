@@ -6,7 +6,7 @@
  * effects, while displaying a busy splash screen.
  */
 
-import {gameAssets} from '../assets';
+import {gameAssets} from '../constants/assets';
 
 export default class Preloader extends Phaser.State {
 

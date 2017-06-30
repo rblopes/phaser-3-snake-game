@@ -7,7 +7,7 @@
  * orientation handling etc. using this game state.
  */
 
-import {preloaderAssets} from '../assets';
+import {preloaderAssets} from '../constants/assets';
 
 export default class Boot extends Phaser.State {
 

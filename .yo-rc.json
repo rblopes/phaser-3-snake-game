@@ -6,13 +6,13 @@
     },
     "baseTemplate": "esnext",
     "dirs": {
-      "objects": "src/objects/",
-      "plugins": "src/plugins/",
-      "states": "src/states/"
+      "objects": "app/scripts/objects/",
+      "plugins": "app/scripts/plugins/",
+      "states": "app/scripts/states/"
     },
     "states": {
-      "moduleName": "src/states.js",
-      "requirePath": "./states/"
+      "moduleName": "app/scripts/states/index.js",
+      "requirePath": "./"
     }
   }
 }
