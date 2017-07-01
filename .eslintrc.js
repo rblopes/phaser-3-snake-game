@@ -11,18 +11,18 @@
  */
 
 exports.env = {
-  // Enable ES2015+ features
+  //  Enable ES2015+ features
   es6: true,
 
-  // Enable Browser global variables
+  //  Enable Browser global variables
   browser: true
 };
 
 exports.parserOptions = {
-  // Validate ECMAScript 2015+ syntax
+  //  Validate ECMAScript 2015+ syntax
   ecmaVersion: 2017,
 
-  // Allow ECMAScript modules
+  //  Allow ECMAScript modules
   sourceType: 'module'
 };
 
@@ -31,13 +31,13 @@ exports.globals = {
   Phaser: false
 };
 
-exports.extends = 'eslint:recommended';
+exports.extends = 'xo';
 
 exports.rules = {
-  // Indent code with 2 spaces
+  //  Indent code with 2 spaces
   'indent': ['error', 2],
 
-  // Prefer single quotes for strings and occasionally template literals
+  //  Prefer single quotes for strings and occasionally template literals
   'quotes': [
     'error',
     'single',
@@ -47,9 +47,15 @@ exports.rules = {
     }
   ],
 
-  // Favor Unix-style line endings
+  //  Favor Unix-style line endings
   'linebreak-style': ['error', 'unix'],
 
-  // End lines with semicolons
-  'semi': ['error', 'always']
+  //  End lines with semicolons
+  'semi': ['error', 'always'],
+
+  //  Fail on capitalized names not preceded by new but relax restriction for
+  //  Phaser function names.
+  'new-cap': ['error', {
+    capIsNewExceptionPattern: '^Phaser\..'
+  }]
 };
