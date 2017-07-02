@@ -13,6 +13,7 @@ export default class Game extends Phaser.State {
     this.load.image('body');
     this.load.image('frame');
     this.load.image('numerals');
+    this.load.image('game-over');
   }
 
   create(/* data */) {
@@ -28,6 +29,11 @@ export default class Game extends Phaser.State {
     //  When a food gets eaten, update the score.
     maze.events.on('FOOD_EATEN', () => {
       scoreboard.scorePoint();
+    });
+
+    //  When game is over, tell the player.
+    maze.events.on('SNAKE_DEAD', () => {
+      scoreboard.showGameOver();
     });
   }
 }

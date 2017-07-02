@@ -16,6 +16,10 @@ export default class Scoreboard extends Phaser.State {
     this.registerBitmapFont(fontConfig);
     this.scoreLabel = this.add.dynamicBitmapText(0, 0, fontConfig.image);
 
+    //  Align this label to the right side.
+    this.gameOverLabel = this.add.image(608, 0, 'game-over');
+    this.gameOverLabel.setOrigin(1, 0);
+
     this.reset();
   }
 
@@ -32,7 +36,13 @@ export default class Scoreboard extends Phaser.State {
     this.scoreLabel.text = String(this.points);
   }
 
+  showGameOver() {
+    this.gameOverLabel.visible = true;
+  }
+
   reset() {
+    this.gameOverLabel.visible = false;
+
     this.points = 0;
     this.updateScoreboard();
   }
