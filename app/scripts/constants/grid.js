@@ -5,5 +5,5 @@
  * Grid dimensions.
  */
 
-export const WIDTH = 40;
-export const HEIGHT = 30;
+export const WIDTH = 38;
+export const HEIGHT = 26;

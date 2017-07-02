@@ -18,7 +18,7 @@ import * as states from './states';
 //  Add all required states and boot the game.
 function init() {
   return Object.entries(states).reduce(
-    (g, [k, S]) => ((g.state.add(k, S, k === 'Maze'), g)),
+    (g, [k, S]) => ((g.state.add(k, S, k === 'Game'), g)),
     new Phaser.Game(config)
   );
 }

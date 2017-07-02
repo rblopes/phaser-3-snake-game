@@ -8,15 +8,16 @@
 import Food from '../objects/food';
 import Snake from '../objects/snake';
 
-export default class Game extends Phaser.State {
-  preload() {
-    this.load.path = 'assets/';
+//  Events dispatched by this state.
+const FOOD_EATEN = new Phaser.Event('FOOD_EATEN');
+const SNAKE_DEAD = new Phaser.Event('SNAKE_DEAD');
 
-    this.load.image('food');
-    this.load.image('body');
-  }
+export default class Maze extends Phaser.State {
+  create(/* data */) {
+    //  Make this viewport 38 x 26 grid units in size -- each grid unit being
+    //  16px worth.
+    this.cameras.main.setViewport(16, 48, 608, 416);
 
-  create() {
     this.food = new Food(this, 3, 4);
     this.snake = new Snake(this, 8, 8);
 
@@ -28,6 +29,8 @@ export default class Game extends Phaser.State {
     const {food, snake, cursors} = this;
 
     if (!snake.alive) {
+      this.events.dispatch(SNAKE_DEAD);
+      this.state.pause(this.state.key);
       return;
     }
 
@@ -49,6 +52,7 @@ export default class Game extends Phaser.State {
     if (snake.update(time)) {
       //  If the snake updated, we need to check for collision against food.
       if (snake.collideWithFood(food)) {
+        this.events.dispatch(FOOD_EATEN);
         food.reposition(snake);
       }
     }
