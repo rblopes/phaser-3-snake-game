@@ -1,4 +1,4 @@
-# Snake + Phaser 3
+# Phaser 3 Demo Project
 
 A [Phaser 3][phsr] demo project powered by [Webpack][wbpk], based on the tutorial titled "Snake Plissken", published on [Phaser World #85][pw85]. Still work in progress.
 

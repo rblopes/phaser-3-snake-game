@@ -35,6 +35,6 @@ export const canvasStyle = 'display: block; margin: 0 auto;';
 export const backgroundColor = '#bfcc00';
 
 //  Game title, version and Web address.
-export const title = 'Snake + Phaser 3';
+export const title = 'Phaser 3 Demo Project';
 export const version = '1.0.0';
 export const url = 'https://example.com/';
