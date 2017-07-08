@@ -33,6 +33,7 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
+      title: 'Phaser 3 Demo Project',
       template: './index.html',
       inject: true
     }),
