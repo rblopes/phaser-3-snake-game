@@ -11,8 +11,7 @@ const path = require('path');
 
 const CWD = process.cwd();
 
-module.exports = {
-  context: path.resolve(CWD, 'app'),
-  public: path.resolve(CWD, 'app'),
-  dist: path.resolve(CWD, 'dist')
-};
+exports.root = CWD;
+exports.context = path.resolve(CWD, 'app');
+exports.public = path.resolve(CWD, 'app');
+exports.dist = path.resolve(CWD, 'dist');
