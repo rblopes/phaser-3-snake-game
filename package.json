@@ -1,8 +1,8 @@
 {
   "scripts": {
-    "dist": "webpack --env.production --config webpack/",
+    "dist": "webpack --env.production --config config/",
     "lint": "eslint \"**/*.js\"",
-    "start": "webpack-dashboard -- webpack-dev-server --config webpack/"
+    "start": "webpack-dashboard -- webpack-dev-server --config config/"
   },
   "dependencies": {
     "babel-polyfill": "^6.23.0",

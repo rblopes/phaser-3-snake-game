@@ -8,8 +8,8 @@
 'use strict';
 
 const webpack = require('webpack');
-// const Clean = require('clean-webpack-plugin');
-// const Copy = require('copy-webpack-plugin');
+const Clean = require('clean-webpack-plugin');
+const Copy = require('copy-webpack-plugin');
 const Dashboard = require('webpack-dashboard/plugin');
 const HTML = require('html-webpack-plugin');
 const babel = require('./babel');
@@ -18,8 +18,8 @@ const paths = require('./paths');
 
 module.exports = isProduction => {
   const plugins = [
-    // new Clean([paths.dist], paths.root),
-    // new Copy([{context: paths.context, from: '**/*.*'}]),
+    new Clean([paths.dist], paths.root),
+    new Copy([{context: paths.public, from: '**/*.*'}]),
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor', 'manifest']
     }),
