@@ -5,19 +5,20 @@
  * UglifyJs plugin settings.
  */
 
+/* eslint-disable camelcase */
 module.exports = {
   output: {
     comments: false
   },
   compress: {
-    unused: true,
-    warnings: false,
     comparisons: true,
     conditionals: true,
-    negate_iife: false,
     dead_code: true,
+    evaluate: true,
     if_return: true,
     join_vars: true,
-    evaluate: true
+    negate_iife: false,
+    unused: true,
+    warnings: false
   }
 };

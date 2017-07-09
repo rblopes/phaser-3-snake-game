@@ -11,10 +11,11 @@ const webpack = require('webpack');
 const Clean = require('clean-webpack-plugin');
 const Copy = require('copy-webpack-plugin');
 const Dashboard = require('webpack-dashboard/plugin');
+const UglifyJS = require('uglifyjs-webpack-plugin');
 const HTML = require('html-webpack-plugin');
 const babel = require('./babel');
 const paths = require('./paths');
-// const uglify = require('./uglify');
+const uglify = require('./uglify');
 
 module.exports = isProduction => {
   const plugins = [
@@ -31,9 +32,12 @@ module.exports = isProduction => {
   ];
 
   if (isProduction) {
-    // babel.presets.push('babili');
+    babel.presets.push('babili');
 
-    // plugins.push(new webpack.optimize.UglifyJsPlugin(uglify));
+    plugins.push(
+      new webpack.LoaderOptionsPlugin({minimize: true, debug: false}),
+      new UglifyJS(uglify)
+    );
   }
   else {
     plugins.push(new Dashboard());
