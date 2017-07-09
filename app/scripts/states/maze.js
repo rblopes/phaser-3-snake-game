@@ -41,11 +41,14 @@ export default class Maze extends Phaser.State {
     //  move in at that time is up and down.
     if (cursors.left.isDown) {
       snake.faceLeft();
-    } else if (cursors.right.isDown) {
+    }
+    else if (cursors.right.isDown) {
       snake.faceRight();
-    } else if (cursors.up.isDown) {
+    }
+    else if (cursors.up.isDown) {
       snake.faceUp();
-    } else if (cursors.down.isDown) {
+    }
+    else if (cursors.down.isDown) {
       snake.faceDown();
     }
 
