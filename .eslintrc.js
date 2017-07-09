@@ -47,6 +47,11 @@ exports.rules = {
     }
   ],
 
+  //  Customize brace style
+  'brace-style': ['error', 'stroustrup', {
+    allowSingleLine: false
+  }],
+
   //  Favor Unix-style line endings
   'linebreak-style': ['error', 'unix'],
 
