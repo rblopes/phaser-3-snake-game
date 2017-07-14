@@ -1,5 +1,5 @@
 /*
- * `Maze` state
+ * `Maze` scene
  * ============
  *
  * Where the actual game play happens.
@@ -8,11 +8,11 @@
 import Food from '../objects/food';
 import Snake from '../objects/snake';
 
-//  Events dispatched by this state.
+//  Events dispatched by this scene.
 const FOOD_EATEN = new Phaser.Event('FOOD_EATEN');
 const SNAKE_DEAD = new Phaser.Event('SNAKE_DEAD');
 
-export default class Maze extends Phaser.State {
+export default class Maze extends Phaser.Scene {
   create(/* data */) {
     //  Make this viewport 38 x 26 grid units in size -- each grid unit being
     //  16px worth.
@@ -30,7 +30,7 @@ export default class Maze extends Phaser.State {
 
     if (!snake.alive) {
       this.events.dispatch(SNAKE_DEAD);
-      this.state.pause(this.state.key);
+      this.scene.pause(this.scene.key);
       return;
     }
 

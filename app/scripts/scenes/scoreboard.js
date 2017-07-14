@@ -1,5 +1,5 @@
 /*
- * `Scoreboard` state
+ * `Scoreboard` scene
  * ==================
  *
  * Shows the player scored points.
@@ -7,7 +7,7 @@
 
 import {numerals as fontConfig} from '../constants/bitmap-fonts';
 
-export default class Scoreboard extends Phaser.State {
+export default class Scoreboard extends Phaser.Scene {
   create(/* data */) {
     //  Make this viewport 16px tall, aligned at the top of the screen, with a
     //  margin of 16px from each size.

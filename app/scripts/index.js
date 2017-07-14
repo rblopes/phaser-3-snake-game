@@ -11,14 +11,14 @@ import 'babel-polyfill';
 //  Import Phaser.
 import 'phaser';
 
-//  Import configuration and game states.
+//  Import configuration and game scenes.
 import * as config from './constants/config';
-import * as states from './states';
+import * as scenes from './scenes';
 
-//  Add all required states and boot the game.
+//  Add all required scenes and boot the game.
 function init() {
-  return Object.entries(states).reduce(
-    (g, [k, S]) => ((g.state.add(k, S, k === 'Game'), g)),
+  return Object.entries(scenes).reduce(
+    (g, [k, S]) => ((g.scene.add(k, S, k === 'Game'), g)),
     new Phaser.Game(config)
   );
 }
