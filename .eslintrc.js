@@ -58,6 +58,9 @@ exports.rules = {
   //  End lines with semicolons
   'semi': ['error', 'always'],
 
+  //  Do not complain about comments beginning with lowercase letters.
+  'capitalized-comments': ['off'],
+
   //  Fail on capitalized names not preceded by new but relax restriction for
   //  Phaser function names.
   'new-cap': ['error', {
