@@ -5,15 +5,9 @@ A [Phaser 3][phsr] demo project powered by [Webpack][wbpk], based on the tutoria
 
 ## Instructions
 
+First, install dependencies using `npm install`. Then, play the sample game running `npm start`.
+
 >   NOTE: It is highly recommended that you have at least Node.js version 6.11, and npm@5 installed to use this project.
-
-This project embeds the Phaser 3 repository as a Git submodule. Use the `--recurse-submodules` option to clone this repository, as follows:
-
-```
-git clone https://github.com/rblopes/phaser-3-snake-game.git --recurse-submodules
-```
-
-After that, you can install its dependencies using npm. To play the demo game, run `npm start`.
 
 
 ## License
