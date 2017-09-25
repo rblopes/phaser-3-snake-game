@@ -8,7 +8,7 @@
 //  Required: import Babel polyfills.
 import 'babel-polyfill';
 
-//  Import Phaser.
+//  Make Phaser globally available.
 import 'phaser';
 
 //  Import configuration and game scenes.
