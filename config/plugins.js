@@ -19,6 +19,10 @@ const uglify = require('./uglify');
 
 module.exports = isProduction => {
   const plugins = [
+    new webpack.DefinePlugin({
+      CANVAS_RENDERER: true,
+      WEBGL_RENDERER: true
+    }),
     new Clean([paths.dist], paths.root),
     new Copy([{context: paths.public, from: '**/*.*'}]),
     new webpack.optimize.CommonsChunkPlugin({
