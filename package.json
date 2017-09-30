@@ -5,14 +5,14 @@
     "start": "webpack-dashboard -- webpack-dev-server --config config/"
   },
   "dependencies": {
-    "babel-polyfill": "^6.26.0",
+    "babel-polyfill": "^7.0.0-beta.2",
     "phaser": "^3.0.0-beta.4"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
+    "babel-core": "^7.0.0-beta.2",
     "babel-loader": "^7.1.2",
-    "babel-preset-babili": "^0.1.4",
-    "babel-preset-env": "^1.6.0",
+    "babel-preset-env": "^2.0.0-beta.2",
+    "babel-preset-minify": "^0.2.0",
     "clean-webpack-plugin": "^0.1.16",
     "copy-webpack-plugin": "^4.0.1",
     "eslint": "^4.7.2",
