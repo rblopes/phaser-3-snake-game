@@ -6,22 +6,22 @@
   },
   "dependencies": {
     "babel-polyfill": "^7.0.0-beta.2",
-    "phaser": "^3.0.0-beta.4"
+    "phaser": "^3.0.0-beta.6"
   },
   "devDependencies": {
     "babel-core": "^7.0.0-beta.2",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^2.0.0-beta.2",
     "babel-preset-minify": "^0.2.0",
-    "clean-webpack-plugin": "^0.1.16",
-    "copy-webpack-plugin": "^4.0.1",
-    "eslint": "^4.7.2",
+    "clean-webpack-plugin": "^0.1.17",
+    "copy-webpack-plugin": "^4.1.1",
+    "eslint": "^4.8.0",
     "eslint-config-xo": "^0.18.2",
     "html-webpack-plugin": "^2.30.1",
-    "uglifyjs-webpack-plugin": "^1.0.0-beta.2",
-    "webpack": "^3.6.0",
-    "webpack-dashboard": "^0.4.0",
-    "webpack-dev-server": "^2.8.2"
+    "uglifyjs-webpack-plugin": "^1.0.0-beta.3",
+    "webpack": "^3.7.1",
+    "webpack-dashboard": "^1.0.0-7",
+    "webpack-dev-server": "^2.9.1"
   },
   "private": true
 }
