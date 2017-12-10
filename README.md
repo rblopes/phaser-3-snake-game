@@ -1,5 +1,5 @@
 <h1>
-    Snake Game: Phaser 3 Demo Project
+    Snake Game: A Phaser 3 Demo
     <a href="https://david-dm.org/rblopes/phaser-3-snake-game" title="dependencies status"><img src="https://david-dm.org/rblopes/phaser-3-snake-game/status.svg"/></a>
     <a href="https://david-dm.org/rblopes/phaser-3-snake-game?type=dev" title="devDependencies status"><img src="https://david-dm.org/rblopes/phaser-3-snake-game/dev-status.svg"/></a>
 </h1>
