@@ -2,7 +2,7 @@
   "scripts": {
     "dist": "webpack --env.production --config config/",
     "lint": "eslint \"**/*.js\"",
-    "start": "webpack-dashboard -- webpack-dev-server --config config/"
+    "start": "webpack-dev-server --config config/"
   },
   "dependencies": {
     "babel-polyfill": "^7.0.0-beta.3",
@@ -21,7 +21,6 @@
     "html-webpack-plugin": "^2.30.1",
     "uglifyjs-webpack-plugin": "^1.1.2",
     "webpack": "^3.10.0",
-    "webpack-dashboard": "^1.0.2",
     "webpack-dev-server": "^2.9.7"
   },
   "private": true
