@@ -22,8 +22,6 @@ module.exports = isProduction => {
       CANVAS_RENDERER: true,
       WEBGL_RENDERER: true
     }),
-    new Clean([paths.dist], paths.root),
-    new Copy([{context: paths.public, from: '**/*.*'}]),
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor', 'manifest']
     }),
@@ -35,10 +33,9 @@ module.exports = isProduction => {
   ];
 
   if (isProduction) {
-    babel.presets.push('babili');
-
     plugins.push(
-      new webpack.LoaderOptionsPlugin({minimize: true, debug: false}),
+      new Clean([paths.dist], paths.root),
+      new Copy([{context: paths.public, from: '**/*.*'}]),
       new UglifyJS(uglify)
     );
   }

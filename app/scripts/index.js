@@ -6,7 +6,7 @@
  */
 
 //  Required: import Babel polyfills.
-import 'babel-polyfill';
+import '@babel/polyfill';
 
 //  Make Phaser globally available.
 import 'phaser';
