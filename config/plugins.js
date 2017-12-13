@@ -12,7 +12,6 @@ const Clean = require('clean-webpack-plugin');
 const Copy = require('copy-webpack-plugin');
 const UglifyJS = require('uglifyjs-webpack-plugin');
 const HTML = require('html-webpack-plugin');
-const babel = require('./babel');
 const paths = require('./paths');
 const uglify = require('./uglify');
 
@@ -28,8 +27,7 @@ module.exports = isProduction => {
     new HTML({
       title: 'Phaser 3 Demo Project',
       template: './index.html'
-    }),
-    new webpack.LoaderOptionsPlugin({options: {babel}})
+    })
   ];
 
   if (isProduction) {

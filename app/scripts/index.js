@@ -5,9 +5,6 @@
  * Provides the game initialization routine.
  */
 
-//  Required: import Babel polyfills.
-import '@babel/polyfill';
-
 //  Make Phaser globally available.
 import 'phaser';
 
