@@ -5,9 +5,6 @@
  * Provides the game initialization routine.
  */
 
-//  Make Phaser globally available.
-import 'phaser';
-
 //  Import configuration and game scenes.
 import * as config from './constants/config';
 import * as scenes from './scenes';
