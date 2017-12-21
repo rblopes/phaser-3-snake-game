@@ -18,7 +18,7 @@ module.exports = env => {
 
     entry: {
       vendor: ['phaser'],
-      app: './scripts/index.js'
+      app: './scripts/'
     },
 
     output: {
