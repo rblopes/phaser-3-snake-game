@@ -22,22 +22,32 @@ export default class Snake {
     this.tailPosition = new Phaser.Geom.Point(x, y);
 
     this.heading = new Phaser.Geom.Point(1, 0);
+    this.updated = true;
   }
 
   update(time) {
     if (time >= this.moveTime) {
+      this.updated = true;
       return this.move(time);
     }
   }
 
-  //  Makes the snake turn counter clockwise.
   turnLeft() {
-    Phaser.Geom.Point.RPerp(this.heading);
+    //  Makes the snake rotate counter clockwise on the next update.
+    if (this.updated) {
+      Phaser.Geom.Point.RPerp(this.heading);
+
+      this.updated = false;
+    }
   }
 
-  //  Makes the snake turn clockwise.
   turnRight() {
-    Phaser.Geom.Point.Perp(this.heading);
+    //  Makes the snake rotate clockwise on the next update.
+    if (this.updated) {
+      Phaser.Geom.Point.Perp(this.heading);
+
+      this.updated = false;
+    }
   }
 
   move(time) {
@@ -75,7 +85,7 @@ export default class Snake {
 
     //  Check to see if any of the body pieces have the same x/y as the head.
     //  If they do, the head ran into the body.
-    let hitBody = Phaser.Actions.GetFirst(
+    const hitBody = Phaser.Actions.GetFirst(
       this.body.children.entries,
       {x: this.head.x, y: this.head.y},
       1
@@ -93,18 +103,16 @@ export default class Snake {
   }
 
   grow() {
-    const newPart = this.body.create(
+    this.body.create(
       this.tailPosition.x,
       this.tailPosition.y,
       'body'
-    );
-    newPart.setOrigin(0);
+    ).setOrigin(0);
   }
 
   collideWithFood(food) {
     if (this.head.x === food.x && this.head.y === food.y) {
       this.grow();
-      food.eat();
 
       //  For every 5 items of food eaten we'll increase the snake speed a
       //  little.
@@ -119,8 +127,8 @@ export default class Snake {
   updateGrid(grid) {
     //  Remove all body pieces from valid positions list.
     this.body.children.each(segment => {
-      let bx = segment.x / 16;
-      let by = segment.y / 16;
+      const bx = segment.x / 16;
+      const by = segment.y / 16;
 
       grid[by][bx] = false;
     });

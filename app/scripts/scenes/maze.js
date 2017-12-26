@@ -51,14 +51,10 @@ export default class Maze extends Phaser.Scene {
     }
 
     //  Check which key is pressed, and then change the direction the snake is
-    //  heading based on that. The checks ensure you don't double-back on
-    //  yourself, for example if you're moving to the right and you press the
-    //  LEFT cursor, it ignores it, because the only valid directions you can
-    //  move in at that time is up and down.
+    //  heading.
     if (leftKey.isDown && this.keyDownCounter < 2) {
       snake.turnLeft();
-    }
-    else if (rightKey.isDown && this.keyDownCounter < 2) {
+    } else if (rightKey.isDown && this.keyDownCounter < 2) {
       snake.turnRight();
     }
 

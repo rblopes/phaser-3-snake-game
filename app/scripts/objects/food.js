@@ -9,16 +9,8 @@ import {WIDTH, HEIGHT} from '../constants/grid';
 
 export default class Food extends Phaser.GameObjects.Image {
   constructor(state, x, y) {
-    super(state, x * 16, y * 16, 'food');
-    this.setOrigin(0);
-
-    this.total = 0;
-
+    super(state, x * 16, y * 16, 'food').setOrigin(0);
     state.children.add(this);
-  }
-
-  eat() {
-    this.total++;
   }
 
   /**
