@@ -22,11 +22,18 @@ export default class Maze extends Phaser.Scene {
     this.snake = new Snake(this, 8, 8);
 
     //  Create our keyboard controls.
-    this.cursors = this.input.keyboard.createCursorKeys();
+    this.cursors = this.input.keyboard.addKeys({
+      leftKey: Phaser.Input.Keyboard.KeyCodes.LEFT,
+      rightKey: Phaser.Input.Keyboard.KeyCodes.RIGHT
+    });
+
+    //  Count how long a key is being pressed down.
+    this.keyDownCounter = 0;
   }
 
   update(time/* , delta */) {
-    const {food, snake, cursors} = this;
+    const {food, snake} = this;
+    const {leftKey, rightKey} = this.cursors;
 
     if (!snake.alive) {
       this.events.dispatch(SNAKE_DEAD);
@@ -34,22 +41,25 @@ export default class Maze extends Phaser.Scene {
       return;
     }
 
+    //  NOTE: Since Phaser has yet to implement a reliable method for checking
+    //  whether a given key has just been pressed up or down, we use this hack
+    //  to count how long a key is being pressed.
+    if (leftKey.isDown || rightKey.isDown) {
+      this.keyDownCounter += 1;
+    } else {
+      this.keyDownCounter = 0;
+    }
+
     //  Check which key is pressed, and then change the direction the snake is
     //  heading based on that. The checks ensure you don't double-back on
     //  yourself, for example if you're moving to the right and you press the
     //  LEFT cursor, it ignores it, because the only valid directions you can
     //  move in at that time is up and down.
-    if (cursors.left.isDown) {
-      snake.faceLeft();
+    if (leftKey.isDown && this.keyDownCounter < 2) {
+      snake.turnLeft();
     }
-    else if (cursors.right.isDown) {
-      snake.faceRight();
-    }
-    else if (cursors.up.isDown) {
-      snake.faceUp();
-    }
-    else if (cursors.down.isDown) {
-      snake.faceDown();
+    else if (rightKey.isDown && this.keyDownCounter < 2) {
+      snake.turnRight();
     }
 
     if (snake.update(time)) {

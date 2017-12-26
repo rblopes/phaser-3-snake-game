@@ -6,7 +6,6 @@
  */
 
 import {WIDTH, HEIGHT} from '../constants/grid';
-import {UP, DOWN, LEFT, RIGHT} from '../constants/directions';
 
 export default class Snake {
   constructor(state, x, y) {
@@ -22,8 +21,7 @@ export default class Snake {
     this.moveDelay = 100;
     this.tailPosition = new Phaser.Geom.Point(x, y);
 
-    this.heading = RIGHT;
-    this.direction = RIGHT;
+    this.heading = new Phaser.Geom.Point(1, 0);
   }
 
   update(time) {
@@ -32,57 +30,38 @@ export default class Snake {
     }
   }
 
-  faceLeft() {
-    if (this.direction === UP || this.direction === DOWN) {
-      this.heading = LEFT;
-    }
+  //  Makes the snake turn counter clockwise.
+  turnLeft() {
+    Phaser.Geom.Point.RPerp(this.heading);
   }
 
-  faceRight() {
-    if (this.direction === UP || this.direction === DOWN) {
-      this.heading = RIGHT;
-    }
-  }
-
-  faceUp() {
-    if (this.direction === LEFT || this.direction === RIGHT) {
-      this.heading = UP;
-    }
-  }
-
-  faceDown() {
-    if (this.direction === LEFT || this.direction === RIGHT) {
-      this.heading = DOWN;
-    }
+  //  Makes the snake turn clockwise.
+  turnRight() {
+    Phaser.Geom.Point.Perp(this.heading);
   }
 
   move(time) {
-    //  Based on the heading property (which is the arrow direction pressed) we
-    //  update `headPosition` value accordingly.
+    //  Based on the heading property we update `headPosition` value
+    //  accordingly.
     //
     //  The `Math.Wrap` call allow the snake to wrap around the screen, so when
     //  it goes off any of the sides it re-appears on the other.
-    switch (this.heading) {
-    case LEFT:
+    if (this.heading.x < 0) {
+      //  Snake is heading left.
       this.headPosition.x = Phaser.Math.Wrap(this.headPosition.x - 1, 0, WIDTH);
-      break;
-
-    case RIGHT:
-      this.headPosition.x = Phaser.Math.Wrap(this.headPosition.x + 1, 0, WIDTH);
-      break;
-
-    case UP:
-      this.headPosition.y = Phaser.Math.Wrap(this.headPosition.y - 1, 0, HEIGHT);
-      break;
-
-    case DOWN:
-      this.headPosition.y = Phaser.Math.Wrap(this.headPosition.y + 1, 0, HEIGHT);
-      break;
-
-    //  No default
     }
-
-    this.direction = this.heading;
+    if (this.heading.x > 0) {
+      //  Snake is heading right.
+      this.headPosition.x = Phaser.Math.Wrap(this.headPosition.x + 1, 0, WIDTH);
+    }
+    if (this.heading.y < 0) {
+      //  Snake is heading up.
+      this.headPosition.y = Phaser.Math.Wrap(this.headPosition.y - 1, 0, HEIGHT);
+    }
+    if (this.heading.y > 0) {
+      //  Snake is heading down.
+      this.headPosition.y = Phaser.Math.Wrap(this.headPosition.y + 1, 0, HEIGHT);
+    }
 
     //  Update the body segments and place the last coordinate into
     //  `this.tailPosition`.
