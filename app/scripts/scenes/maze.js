@@ -5,8 +5,8 @@
  * Where the actual game play happens.
  */
 
-import Food from '../entities/food';
-import Snake from '../entities/snake';
+import Food from '../objects/food';
+import Snake from '../objects/snake';
 
 //  Events dispatched by this scene.
 const FOOD_EATEN = new Phaser.Event('FOOD_EATEN');
