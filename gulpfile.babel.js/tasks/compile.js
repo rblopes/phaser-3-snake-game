@@ -14,7 +14,10 @@ const compile = done => {
     if (err) {
       throw new PluginError('webpack', err);
     }
-    logger.info(`[webpack]\n${stats.toString({colors: true})}`);
+    logger.info(`[webpack]\n${stats.toString({
+      colors: true,
+      modules: false
+    })}`);
     done();
   });
 };
