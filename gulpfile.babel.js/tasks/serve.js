@@ -21,7 +21,8 @@ const serve = () => {
     webpackDevMiddleware(compiler, {
       quiet: true,
       stats: {
-        colors: true
+        colors: true,
+        modules: false
       }
     }),
     webpackHotMiddleware(compiler, {
