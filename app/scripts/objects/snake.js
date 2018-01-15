@@ -51,27 +51,14 @@ export default class Snake {
   }
 
   move(time) {
-    //  Based on the heading property we update `headPosition` value
-    //  accordingly.
-    //
-    //  The `Math.Wrap` call allow the snake to wrap around the screen, so when
-    //  it goes off any of the sides it re-appears on the other.
-    if (this.heading.x < 0) {
-      //  Snake is heading left.
-      this.headPosition.x = Phaser.Math.Wrap(this.headPosition.x - 1, 0, WIDTH);
-    }
-    if (this.heading.x > 0) {
-      //  Snake is heading right.
-      this.headPosition.x = Phaser.Math.Wrap(this.headPosition.x + 1, 0, WIDTH);
-    }
-    if (this.heading.y < 0) {
-      //  Snake is heading up.
-      this.headPosition.y = Phaser.Math.Wrap(this.headPosition.y - 1, 0, HEIGHT);
-    }
-    if (this.heading.y > 0) {
-      //  Snake is heading down.
-      this.headPosition.y = Phaser.Math.Wrap(this.headPosition.y + 1, 0, HEIGHT);
-    }
+    //  Update the snake position according to the direction the player wants
+    //  it to move to. The `Math.Wrap` function call allows the snake to wrap
+    //  around the screen edges, so when it goes off any side it should
+    //  re-appear on the opposite side.
+    this.headPosition.setTo(
+      Phaser.Math.Wrap(this.headPosition.x + this.heading.x, 0, WIDTH),
+      Phaser.Math.Wrap(this.headPosition.y + this.heading.y, 0, HEIGHT)
+    );
 
     //  Update the body segments and place the last coordinate into
     //  `this.tailPosition`.

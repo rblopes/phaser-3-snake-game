@@ -1,10 +1,10 @@
 <h1>
     Snake Game: A Phaser 3 Demo
-    <a href="https://david-dm.org/rblopes/phaser-3-snake-game" title="dependencies status"><img src="https://david-dm.org/rblopes/phaser-3-snake-game/status.svg"/></a>
-    <a href="https://david-dm.org/rblopes/phaser-3-snake-game?type=dev" title="devDependencies status"><img src="https://david-dm.org/rblopes/phaser-3-snake-game/dev-status.svg"/></a>
+    <a href="https://david-dm.org/rblopes/phaser-3-snake-game" alt="dependencies status badge"><img src="https://david-dm.org/rblopes/phaser-3-snake-game/status.svg"/></a>
+    <a href="https://david-dm.org/rblopes/phaser-3-snake-game?type=dev" alt="development dependencies status badge"><img src="https://david-dm.org/rblopes/phaser-3-snake-game/dev-status.svg"/></a>
 </h1>
 
-A [Phaser 3][phsr] demo project powered by [Webpack][wbpk], based on the tutorial titled "Snake Plissken", published on [Phaser World #85][pw85]. Still a work in progress.
+A [Phaser 3][phsr] demonstration project powered by [Gulp][gulp] and [Webpack][wbpk], based on the tutorial titled "Snake Plissken", published on [Phaser World #85][pw85]. Still a work in progress.
 
 
 ## Instructions
@@ -20,4 +20,5 @@ Distributed under the terms of the [MIT License](LICENSE.md). Portions of the ga
 
 [wbpk]: https://webpack.js.org/
 [pw85]: https://madmimi.com/p/03594a
+[gulp]: https://github.com/gulpjs/gulp
 [phsr]: https://github.com/photonstorm/phaser
