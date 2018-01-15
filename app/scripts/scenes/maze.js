@@ -8,10 +8,6 @@
 import Food from '../objects/food';
 import Snake from '../objects/snake';
 
-//  Events dispatched by this scene.
-const FOOD_EATEN = new Phaser.Event('FOOD_EATEN');
-const SNAKE_DEAD = new Phaser.Event('SNAKE_DEAD');
-
 export default class Maze extends Phaser.Scene {
   create(/* data */) {
     //  Make this viewport 38 x 26 grid units in size -- each grid unit being
@@ -36,7 +32,7 @@ export default class Maze extends Phaser.Scene {
     const {leftKey, rightKey} = this.cursors;
 
     if (!snake.alive) {
-      this.events.dispatch(SNAKE_DEAD);
+      this.events.emit('SNAKE_DEAD');
       this.scene.pause(this.scene.key);
       return;
     }
@@ -61,7 +57,7 @@ export default class Maze extends Phaser.Scene {
     if (snake.update(time)) {
       //  If the snake updated, we need to check for collision against food.
       if (snake.collideWithFood(food)) {
-        this.events.dispatch(FOOD_EATEN);
+        this.events.emit('FOOD_EATEN');
         food.reposition(snake);
       }
     }
