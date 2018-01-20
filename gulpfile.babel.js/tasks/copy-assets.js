@@ -9,6 +9,6 @@ import gulp from 'gulp';
 import {dest, dirs} from '../config/paths';
 
 const copyAssets = () => gulp.src(`${dirs.static}/**`).pipe(gulp.dest(dest));
-copyAssets.description = `Copy static assets from ${dirs.static}`;
+copyAssets.description = `Copy static assets from '${dirs.static}' directory.`;
 
 export default copyAssets;
