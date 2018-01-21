@@ -3,6 +3,7 @@
  */
 
 import {src, dest} from '../paths';
+import babelConfig from '../babel';
 import plugins from './plugins';
 
 export default (env = 'development') => ({
@@ -14,7 +15,10 @@ export default (env = 'development') => ({
   },
 
   output: {
-    filename: '[name]-[chunkhash].bundle.js',
+    filename:
+      env === 'production'
+        ? '[name]-[chunkhash].bundle.js'
+        : '[name].bundle.js',
     path: dest
   },
 
@@ -25,19 +29,7 @@ export default (env = 'development') => ({
         include: src,
         use: {
           loader: 'babel-loader',
-          options: {
-            presets: [
-              [
-                '@babel/preset-env',
-                {
-                  targets: {
-                    browsers: 'last 2 versions'
-                  },
-                  useBuiltIns: 'usage'
-                }
-              ]
-            ]
-          }
+          options: babelConfig
         }
       }
     ]
