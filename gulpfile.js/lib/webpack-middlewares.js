@@ -2,9 +2,9 @@
  * Webpack middlewares for Browsersync.
  */
 
-import devMiddleware from 'webpack-dev-middleware';
+const devMiddleware = require('webpack-dev-middleware');
 
-export default function(compiler) {
+module.exports = function (compiler) {
   return [
     devMiddleware(compiler, {
       quiet: true,
@@ -14,4 +14,4 @@ export default function(compiler) {
       }
     })
   ];
-}
+};

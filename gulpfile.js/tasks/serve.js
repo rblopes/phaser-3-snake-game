@@ -6,10 +6,10 @@
  * some Webpack middlewares to enable live reloading features.
  */
 
-import config from '../config/browsersync';
-import server from '../lib/server';
-import webpack from '../lib/webpack';
-import webpackMiddlewares from '../lib/webpack-middlewares';
+const config = require('../config/browsersync');
+const server = require('../lib/server');
+const webpack = require('../lib/webpack');
+const webpackMiddlewares = require('../lib/webpack-middlewares');
 
 const serve = () => {
   const compiler = webpack('development');
@@ -20,4 +20,4 @@ const serve = () => {
 };
 serve.description = `Create a Browsersync instance for live development.`;
 
-export default serve;
+module.exports = serve;

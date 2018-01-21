@@ -2,7 +2,7 @@
  * UglifyJs plugin settings.
  */
 
-export default {
+module.exports = {
   parallel: true,
   sourceMap: true,
   uglifyOptions: {

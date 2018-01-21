@@ -2,9 +2,9 @@
  * Basic settings for Browsersync Web server.
  */
 
-import {dirs} from './paths';
+const {dirs} = require('./paths');
 
-export default {
+module.exports = {
   ui: false,
   notify: false,
   ghostMode: false,

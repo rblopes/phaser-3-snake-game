@@ -2,11 +2,11 @@
  * Webpack configuration.
  */
 
-import {src, dest} from '../paths';
-import babelConfig from '../babel';
-import plugins from './plugins';
+const {src, dest} = require('../paths');
+const babelConfig = require('../babel');
+const plugins = require('./plugins');
 
-export default (env = 'development') => ({
+module.exports = (env = 'development') => ({
   context: src,
 
   entry: {

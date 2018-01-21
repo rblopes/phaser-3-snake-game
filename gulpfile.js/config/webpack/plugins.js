@@ -2,12 +2,12 @@
  * Webpack plugins.
  */
 
-import webpack from 'webpack';
-import UglifyJS from 'uglifyjs-webpack-plugin';
-import HTML from 'html-webpack-plugin';
-import uglifyOptions from './uglify';
+const webpack = require('webpack');
+const UglifyJS = require('uglifyjs-webpack-plugin');
+const HTML = require('html-webpack-plugin');
+const uglifyOptions = require('./uglify');
 
-export default (env = 'development') =>
+module.exports = (env = 'development') =>
   [
     //  Required by Phaser: Enable Canvas and WebGL renderers.
     new webpack.DefinePlugin({

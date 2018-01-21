@@ -5,10 +5,10 @@
  * Copy static application assets for distribution.
  */
 
-import gulp from 'gulp';
-import {dest, dirs} from '../config/paths';
+const gulp = require('gulp');
+const {dest, dirs} = require('../config/paths');
 
 const copyAssets = () => gulp.src(`${dirs.static}/**`).pipe(gulp.dest(dest));
 copyAssets.description = `Copy static assets from '${dirs.static}' directory.`;
 
-export default copyAssets;
+module.exports = copyAssets;

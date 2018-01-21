@@ -5,9 +5,9 @@
  * Compile scripts in production mode using Webpack.
  */
 
-import logger from 'gulplog';
-import PluginError from 'plugin-error';
-import webpack from '../lib/webpack';
+const logger = require('gulplog');
+const PluginError = require('plugin-error');
+const webpack = require('../lib/webpack');
 
 const compile = done => {
   return webpack('production').run((err, stats) => {
@@ -25,4 +25,4 @@ const compile = done => {
 };
 compile.description = `Compile scripts in production mode using Webpack.`;
 
-export default compile;
+module.exports = compile;
