@@ -49,5 +49,5 @@ export default (env = 'development') => ({
 
   plugins: plugins(env),
 
-  devtool: env === 'development' ? 'cheap-source-map' : 'source-map'
+  devtool: env === 'development' ? 'eval-source-map' : 'source-map'
 });
