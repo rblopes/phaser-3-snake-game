@@ -6,25 +6,15 @@
  * some Webpack middlewares to enable live reloading features.
  */
 
-import browsersync from 'browser-sync';
-import webpackDevMiddleware from 'webpack-dev-middleware';
 import config from '../config/browsersync';
+import server from '../lib/server';
 import webpack from '../lib/webpack';
-
-const server = browsersync.create();
+import webpackMiddlewares from '../lib/webpack-middlewares';
 
 const serve = () => {
   const compiler = webpack('development');
 
-  config.middleware = [
-    webpackDevMiddleware(compiler, {
-      quiet: true,
-      stats: {
-        colors: true,
-        modules: false
-      }
-    })
-  ];
+  config.middleware.push(...webpackMiddlewares(compiler));
 
   server.init(config);
 };

@@ -11,11 +11,9 @@ export default {
   server: {
     baseDir: [dirs.static]
   },
+  middleware: [],
   watchOptions: {
     ignoreInitial: true
   },
-  files: [
-    `${dirs.static}/**`,
-    `${dirs.scripts}/**`
-  ]
+  files: [`${dirs.static}/**`, `${dirs.scripts}/**`]
 };
