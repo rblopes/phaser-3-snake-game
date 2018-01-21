@@ -9,5 +9,6 @@ export const src = path.resolve(root, 'app/');
 export const dest = path.resolve(root, 'dist/');
 
 export const dirs = {
-  static: path.resolve(root, 'app/static/')
+  static: path.resolve(src, 'static/'),
+  scripts: path.resolve(src, 'scripts/')
 };

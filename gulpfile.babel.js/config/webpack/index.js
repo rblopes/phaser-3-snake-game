@@ -10,15 +10,11 @@ export default (env = 'development') => ({
 
   entry: {
     vendor: ['phaser'],
-    app: [
-      env === 'development' &&
-        'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true&overlay=true',
-      './scripts/'
-    ].filter(Boolean)
+    app: ['./scripts/']
   },
 
   output: {
-    filename: '[name]-[hash].bundle.js',
+    filename: '[name]-[chunkhash].bundle.js',
     path: dest
   },
 

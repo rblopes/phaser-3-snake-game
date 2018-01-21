@@ -20,12 +20,6 @@ export default (env = 'development') =>
       names: ['vendor', 'manifest']
     }),
 
-    //  Enable Hot Module Replacement during development.
-    env === 'development' && new webpack.HotModuleReplacementPlugin(),
-
-    //  Needed for HMR error handling.
-    env === 'development' && new webpack.NamedModulesPlugin(),
-
     //  Process the HTML template.
     new HTML({
       title: 'Phaser 3 Demo Project',

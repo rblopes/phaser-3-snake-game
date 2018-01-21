@@ -14,5 +14,8 @@ export default {
   watchOptions: {
     ignoreInitial: true
   },
-  files: [`${dirs.static}/**`]
+  files: [
+    `${dirs.static}/**`,
+    `${dirs.scripts}/**`
+  ]
 };

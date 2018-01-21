@@ -35,8 +35,7 @@
     "plugin-error": "^1.0.0",
     "uglifyjs-webpack-plugin": "^1.1.6",
     "webpack": "^3.10.0",
-    "webpack-dev-middleware": "^2.0.4",
-    "webpack-hot-middleware": "^2.21.0"
+    "webpack-dev-middleware": "^2.0.4"
   },
   "private": true
 }

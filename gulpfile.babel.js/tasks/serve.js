@@ -8,7 +8,6 @@
 
 import browsersync from 'browser-sync';
 import webpackDevMiddleware from 'webpack-dev-middleware';
-import webpackHotMiddleware from 'webpack-hot-middleware';
 import config from '../config/browsersync';
 import webpack from '../lib/webpack';
 
@@ -24,9 +23,6 @@ const serve = () => {
         colors: true,
         modules: false
       }
-    }),
-    webpackHotMiddleware(compiler, {
-      log: () => {}
     })
   ];
 
