@@ -9,9 +9,9 @@ A [Phaser 3][phsr] demonstration project powered by [Gulp][gulp] and [Webpack][w
 
 ## Instructions
 
-First, install dependencies using `npm install`. Then, play the sample game running `npm start`.
+>   NOTE: It is highly recommended that you have at least Node.js version 6.11 installed, and [Yarn](https://yarnpkg.com/) to manage this project.
 
->   NOTE: It is highly recommended that you have at least Node.js version 6.11, and [Yarn](https://yarnpkg.com/) installed to use this project.
+First, install the project dependencies using `yarn`. Then, to play the sample game, just run `yarn start`.
 
 
 ## License
