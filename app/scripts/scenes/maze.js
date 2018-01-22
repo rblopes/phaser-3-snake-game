@@ -42,7 +42,8 @@ export default class Maze extends Phaser.Scene {
     //  to count how long a key is being pressed.
     if (leftKey.isDown || rightKey.isDown) {
       this.keyDownCounter += 1;
-    } else {
+    }
+    else {
       this.keyDownCounter = 0;
     }
 
@@ -50,7 +51,8 @@ export default class Maze extends Phaser.Scene {
     //  heading.
     if (leftKey.isDown && this.keyDownCounter < 2) {
       snake.turnLeft();
-    } else if (rightKey.isDown && this.keyDownCounter < 2) {
+    }
+    else if (rightKey.isDown && this.keyDownCounter < 2) {
       snake.turnRight();
     }
 
