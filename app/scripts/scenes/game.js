@@ -5,10 +5,11 @@
  * The main game scene.
  */
 
+import files from '../constants/assets';
+
 export default class Game extends Phaser.Scene {
-  preload() {
-    this.load.path = 'assets/';
-    this.load.image(['food', 'body', 'frame', 'numerals', 'game-over']);
+  constructor(config = {}) {
+    super(Object.assign({files}, config));
   }
 
   create(/* data */) {
