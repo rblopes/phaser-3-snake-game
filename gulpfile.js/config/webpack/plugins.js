@@ -17,7 +17,7 @@ module.exports = (env = 'development') =>
 
     //  Split the compiled JavaScript bundle.
     new webpack.optimize.CommonsChunkPlugin({
-      names: ['vendor', 'manifest']
+      names: ['vendor']
     }),
 
     //  Process the HTML template.
