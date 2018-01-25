@@ -13,15 +13,15 @@ export default class Game extends Phaser.Scene {
   }
 
   create(/* data */) {
-    const maze = this.scene.manager.getScene('Maze');
-    const scoreboard = this.scene.manager.getScene('Scoreboard');
+    this.add.image(0, 32, 'frame').setOrigin(0, 0);
 
-    const frame = this.add.image(0, 32, 'frame');
-    frame.setOrigin(0, 0);
-
+    //  Run both scenes in parallel.
     this.scene
       .launch('Maze')
       .launch('Scoreboard');
+
+    const maze = this.scene.get('Maze');
+    const scoreboard = this.scene.get('Scoreboard');
 
     //  When a food gets eaten, update the score.
     maze.events.on('FOOD_EATEN', () => scoreboard.scorePoint());

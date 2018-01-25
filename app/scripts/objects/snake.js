@@ -21,7 +21,7 @@ export default class Snake {
     this.moveDelay = 100;
     this.tailPosition = new Phaser.Geom.Point(x, y);
 
-    this.heading = new Phaser.Geom.Point(1, 0);
+    this.direction = new Phaser.Geom.Point(1, 0);
     this.updated = true;
   }
 
@@ -35,7 +35,7 @@ export default class Snake {
   turnLeft() {
     //  Makes the snake rotate counter clockwise on the next update.
     if (this.updated) {
-      Phaser.Geom.Point.RPerp(this.heading);
+      Phaser.Geom.Point.RPerp(this.direction);
 
       this.updated = false;
     }
@@ -44,10 +44,19 @@ export default class Snake {
   turnRight() {
     //  Makes the snake rotate clockwise on the next update.
     if (this.updated) {
-      Phaser.Geom.Point.Perp(this.heading);
+      Phaser.Geom.Point.Perp(this.direction);
 
       this.updated = false;
     }
+  }
+
+  hitBody() {
+    //  Tells whether the snake run over its body or not.
+    return Phaser.Actions.GetFirst(
+      this.body.children.entries,
+      {x: this.head.x, y: this.head.y},
+      1
+    );
   }
 
   move(time) {
@@ -56,8 +65,8 @@ export default class Snake {
     //  around the screen edges, so when it goes off any side it should
     //  re-appear on the opposite side.
     this.headPosition.setTo(
-      Phaser.Math.Wrap(this.headPosition.x + this.heading.x, 0, WIDTH),
-      Phaser.Math.Wrap(this.headPosition.y + this.heading.y, 0, HEIGHT)
+      Phaser.Math.Wrap(this.headPosition.x + this.direction.x, 0, WIDTH),
+      Phaser.Math.Wrap(this.headPosition.y + this.direction.y, 0, HEIGHT)
     );
 
     //  Update the body segments and place the last coordinate into
@@ -72,13 +81,7 @@ export default class Snake {
 
     //  Check to see if any of the body pieces have the same x/y as the head.
     //  If they do, the head ran into the body.
-    const hitBody = Phaser.Actions.GetFirst(
-      this.body.children.entries,
-      {x: this.head.x, y: this.head.y},
-      1
-    );
-
-    if (hitBody) {
+    if (this.hitBody()) {
       //  Game Over!
       this.alive = false;
       return false;
@@ -106,8 +109,10 @@ export default class Snake {
       if (this.moveDelay > 20 && food.total % 5 === 0) {
         this.moveDelay -= 5;
       }
+
       return true;
     }
+
     return false;
   }
 
@@ -119,6 +124,7 @@ export default class Snake {
 
       grid[by][bx] = false;
     });
+
     return grid;
   }
 }
