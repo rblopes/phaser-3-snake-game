@@ -5,7 +5,7 @@
  * Compile scripts in production mode using Webpack.
  */
 
-const logger = require('gulplog');
+const log = require('fancy-log');
 const PluginError = require('plugin-error');
 const webpack = require('../lib/webpack');
 
@@ -14,7 +14,7 @@ const compile = done => {
     if (err) {
       throw new PluginError('webpack', err);
     }
-    logger.info(
+    log.info(
       `[webpack]\n${stats.toString({
         colors: true,
         modules: false
