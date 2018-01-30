@@ -35,7 +35,7 @@ export default class Snake {
   turnLeft() {
     //  Makes the snake rotate counter clockwise on the next update.
     if (this.updated) {
-      Phaser.Geom.Point.RPerp(this.direction);
+      this.direction.setTo(this.direction.y, -this.direction.x);
 
       this.updated = false;
     }
@@ -44,7 +44,7 @@ export default class Snake {
   turnRight() {
     //  Makes the snake rotate clockwise on the next update.
     if (this.updated) {
-      Phaser.Geom.Point.Perp(this.direction);
+      this.direction.setTo(-this.direction.y, this.direction.x);
 
       this.updated = false;
     }
