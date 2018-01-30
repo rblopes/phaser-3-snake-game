@@ -4,15 +4,18 @@
       "createdWith": "2.3.1",
       "creationDate": "2017-06-30T14:59:45.869Z"
     },
-    "baseTemplate": "esnext",
-    "dirs": {
-      "objects": "app/scripts/objects/",
-      "plugins": "app/scripts/plugins/",
-      "states": "app/scripts/states/"
+    "objects": {
+      "dest": "app/scripts/objects/"
     },
-    "states": {
-      "moduleName": "app/scripts/states/index.js",
-      "requirePath": "./"
+    "plugins": {
+      "dest": "app/scripts/plugins/"
+    },
+    "scenes": {
+      "dest": "app/scripts/scenes/",
+      "index": {
+        "name": "app/scripts/scenes/index.js",
+        "requirePath": "./"
+      }
     }
   }
 }
