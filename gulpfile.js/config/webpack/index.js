@@ -16,9 +16,9 @@ module.exports = (env = 'development') => ({
 
   output: {
     filename:
-      env === 'production'
-        ? '[name]-[chunkhash].bundle.js'
-        : '[name].bundle.js',
+      env === 'production' ?
+        '[name]-[chunkhash].bundle.js' :
+        '[name].bundle.js',
     path: dest
   },
 
