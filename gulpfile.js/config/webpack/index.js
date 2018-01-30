@@ -25,6 +25,10 @@ module.exports = (env = 'development') => ({
   module: {
     rules: [
       {
+        test: /\.(frag|vert)$/,
+        use: 'raw-loader'
+      },
+      {
         test: /\.js$/,
         include: src,
         use: {
