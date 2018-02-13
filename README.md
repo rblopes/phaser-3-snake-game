@@ -1,6 +1,6 @@
 # [Snake Game: A Phaser 3 Demo][game] [![dependencies status badge](https://david-dm.org/rblopes/phaser-3-snake-game/status.svg?style=flat-square)](https://david-dm.org/rblopes/phaser-3-snake-game) [![development dependencies status badge](https://david-dm.org/rblopes/phaser-3-snake-game/dev-status.svg?style=flat-square)](https://david-dm.org/rblopes/phaser-3-snake-game?type=dev)
 
->   A [Phaser 3][phsr] demonstration project powered by [Gulp][gulp] and [Webpack][wbpk], based on the tutorial titled "Snake Plissken", published on [Phaser World #85][pw85]. Still a work in progress.
+>   A [Phaser 3][phsr] demonstration project powered by [Gulp][gulp] and [Webpack][wbpk], based on the tutorial titled "Snake Plissken", published on [Phaser World #85][pw85].
 
 
 ## Game Controls
