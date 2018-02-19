@@ -10,6 +10,8 @@
  *   <http://eslint.org/docs/user-guide/configuring>.
  */
 
+export.root = true;
+
 exports.env = {
   //  Enable ES2015+ features
   es6: true,
