@@ -1,6 +1,7 @@
 .*
 *.log
 Thumbs.db
+Session.vim
 
 dist/
 node_modules/
