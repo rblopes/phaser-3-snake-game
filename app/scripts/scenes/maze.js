@@ -9,6 +9,10 @@ import Food from '../objects/food';
 import Snake from '../objects/snake';
 
 export default class Maze extends Phaser.Scene {
+  constructor() {
+    super({key: 'Maze'});
+  }
+
   create(/* data */) {
     //  Make this viewport 38 x 26 grid units in size -- each grid unit being
     //  16px worth.

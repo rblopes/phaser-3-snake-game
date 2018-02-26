@@ -8,8 +8,8 @@
 import files from '../constants/assets';
 
 export default class Game extends Phaser.Scene {
-  constructor(config = {}) {
-    super(Object.assign({files}, config));
+  constructor() {
+    super({key: 'Game', files});
   }
 
   create(/* data */) {

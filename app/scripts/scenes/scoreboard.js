@@ -8,6 +8,10 @@
 import {numerals as fontConfig} from '../constants/bitmap-fonts';
 
 export default class Scoreboard extends Phaser.Scene {
+  constructor() {
+    super({key: 'Scoreboard'});
+  }
+
   create(/* data */) {
     //  Make this viewport 16px tall, aligned at the top of the screen, with a
     //  margin of 16px from each size.
