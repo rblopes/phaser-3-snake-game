@@ -2,6 +2,10 @@
 
 >   A [Phaser 3][phsr] demonstration project powered by [Gulp][gulp] and [Webpack][wbpk], based on the tutorial titled "Snake Plissken", published on [Phaser World #85][pw85].
 
+<div align="center">
+![Screenshot](screenshot.png)
+</div>
+
 
 ## Game Controls
 
