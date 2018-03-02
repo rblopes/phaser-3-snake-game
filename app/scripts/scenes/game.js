@@ -13,7 +13,7 @@ export default class Game extends Phaser.Scene {
   }
 
   create(/* data */) {
-    this.add.image(0, 32, 'frame').setOrigin(0, 0);
+    this.add.image(0, 0, 'frame').setOrigin(0, 0);
 
     //  Run both scenes in parallel.
     this.scene

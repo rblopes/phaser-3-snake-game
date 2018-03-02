@@ -5,6 +5,7 @@
  * Shows the player scored points.
  */
 
+import {WIDTH} from '../constants/grid';
 import {numerals as fontConfig} from '../constants/bitmap-fonts';
 
 export default class Scoreboard extends Phaser.Scene {
@@ -15,13 +16,13 @@ export default class Scoreboard extends Phaser.Scene {
   create(/* data */) {
     //  Make this viewport 16px tall, aligned at the top of the screen, with a
     //  margin of 16px from each size.
-    this.cameras.main.setViewport(16, 16, 608, 16);
+    this.cameras.main.setViewport(8, 8, 16 * WIDTH, 16);
 
     this.registerBitmapFont(fontConfig);
     this.scoreLabel = this.add.dynamicBitmapText(0, 0, fontConfig.image);
 
     //  Align this label to the right side.
-    this.gameOverLabel = this.add.image(608, 0, 'game-over');
+    this.gameOverLabel = this.add.image(16 * WIDTH, 0, 'game-over');
     this.gameOverLabel.setOrigin(1, 0);
 
     this.reset();

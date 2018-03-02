@@ -10,7 +10,7 @@ import * as scenes from '../scenes';
 
 //  Game canvas dimensions.
 export const width = 640;
-export const height = 480;
+export const height = 360;
 
 //  Adjust canvas zoom factor.
 export const zoom = 1;
