@@ -36,9 +36,10 @@ export default class Scoreboard extends Phaser.Scene {
     this.scoreLabel = this.add.bitmapText(0, 0, fontConfig.image, '0');
 
     //  Align this label to the right side.
-    this.gameOverLabel = this.add.image(WIDTH * LENGTH, 0, 'game-over')
-      .setOrigin(1, 0)
-      .setVisible(false);
+    this.gameOverLabel =
+      this.add.bitmapText(WIDTH * LENGTH, 0, fontConfig.image, 'GAME OVER')
+        .setOrigin(1, 0)
+        .setVisible(false);
   }
 
   //  -------------------------------------------------------------------------

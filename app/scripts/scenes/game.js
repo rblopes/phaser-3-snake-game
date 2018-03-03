@@ -8,10 +8,17 @@
 export default class Game extends Phaser.Scene {
   constructor() {
     super({key: 'Game'});
+
+    /**
+     *  Keep the last high score registered.
+     */
+    this.highScore = 0;
   }
 
   init() {
-    //  Game points.
+    /**
+     *  Current game score.
+     */
     this.points = 0;
   }
 
@@ -93,6 +100,17 @@ export default class Game extends Phaser.Scene {
 
   endGame() {
     this.events.emit('snake-died');
+
+    //  Update the high score.
+    this.highScore = Math.max(this.points, this.highScore);
+
+    //  Wait for a moment and go back to the menu screen.
+    this.time.delayedCall(2500, () => {
+      this.scene
+        .stop('Scoreboard')
+        .stop('Maze')
+        .start('Menu');
+    });
   }
 
   updatePoints() {

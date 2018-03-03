@@ -13,12 +13,12 @@ export default [{
   key: 'food',
   type: 'image'
 }, {
+  key: 'font',
+  type: 'image'
+}, {
   key: 'frame',
   type: 'image'
 }, {
-  key: 'game-over',
-  type: 'image'
-}, {
-  key: 'numerals',
+  key: 'title',
   type: 'image'
 }];

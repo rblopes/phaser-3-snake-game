@@ -24,7 +24,7 @@ export default class Loader extends Phaser.Scene {
       Phaser.GameObjects.BitmapText.ParseRetroFont(this, fontConfig)
     );
 
-    //  We are done here. Launch the game.
-    this.scene.start('Game');
+    //  We are done here. Launch the game menu.
+    this.scene.start('Menu');
   }
 }
