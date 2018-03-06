@@ -42,9 +42,10 @@ export default class Maze extends Phaser.Scene {
       return;
     }
 
-    //  NOTE: Since Phaser has yet to implement a reliable method for checking
-    //  whether a given key has just been pressed up or down, we use this hack
-    //  to count how long a key is being pressed.
+    //  NOTE: Phaser still lacks a reliable method for checking when a key was
+    //  just pressed. Our last resort is to update a counter for the duration
+    //  of that key press and, based on its value, decide whether to change
+    //  the snake direction or not on the next branching logic.
     if (leftKey.isDown || rightKey.isDown) {
       this.keyDownCounter += 1;
     }
