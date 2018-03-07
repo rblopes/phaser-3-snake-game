@@ -5,7 +5,7 @@
  * Bitmap fonts definitions.
  */
 
-export const numerals = {
+export default {
   image: 'numerals',
   width: 16,
   height: 16,

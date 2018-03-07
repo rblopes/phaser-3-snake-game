@@ -38,7 +38,7 @@ export default class Maze extends Phaser.Scene {
 
     if (!snake.alive) {
       this.events.emit('SNAKE_DEAD');
-      this.scene.pause(this.scene.key);
+      this.scene.pause();
       return;
     }
 

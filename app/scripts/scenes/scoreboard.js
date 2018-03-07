@@ -6,7 +6,7 @@
  */
 
 import {WIDTH} from '../constants/grid';
-import {numerals as fontConfig} from '../constants/bitmap-fonts';
+import fontConfig from '../constants/bitmap-fonts';
 
 export default class Scoreboard extends Phaser.Scene {
   constructor() {
@@ -18,7 +18,6 @@ export default class Scoreboard extends Phaser.Scene {
     //  margin of 16px from each size.
     this.cameras.main.setViewport(8, 8, 16 * WIDTH, 16);
 
-    this.registerBitmapFont(fontConfig);
     this.scoreLabel = this.add.dynamicBitmapText(0, 0, fontConfig.image);
 
     //  Align this label to the right side.
@@ -29,13 +28,6 @@ export default class Scoreboard extends Phaser.Scene {
   }
 
   //  -------------------------------------------------------------------------
-
-  registerBitmapFont(fontConfig) {
-    this.cache.bitmapFont.add(
-      fontConfig.image,
-      Phaser.GameObjects.BitmapText.ParseRetroFont(this, fontConfig)
-    );
-  }
 
   updateScoreboard() {
     this.scoreLabel.text = String(this.points);
