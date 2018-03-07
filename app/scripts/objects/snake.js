@@ -5,7 +5,7 @@
  * Handles the logic and appearance of the snake in the maze.
  */
 
-import {WIDTH, HEIGHT} from '../constants/grid';
+import {WIDTH, HEIGHT, LENGTH} from '../constants/grid';
 
 export default class Snake {
   constructor(state, x, y) {
@@ -13,7 +13,7 @@ export default class Snake {
 
     this.body = state.add.group();
 
-    this.head = this.body.create(x * 16, y * 16, 'body');
+    this.head = this.body.create(x * LENGTH, y * LENGTH, 'body');
     this.head.setOrigin(0);
 
     this.alive = true;
@@ -73,8 +73,8 @@ export default class Snake {
     //  `this.tailPosition`.
     Phaser.Actions.ShiftPosition(
       this.body.children.entries,
-      this.headPosition.x * 16,
-      this.headPosition.y * 16,
+      this.headPosition.x * LENGTH,
+      this.headPosition.y * LENGTH,
       1,
       this.tailPosition
     );
@@ -119,12 +119,12 @@ export default class Snake {
 
   updateGrid(grid) {
     //  Remove all body pieces from valid positions list.
-    this.body.children.each(segment => {
-      const bx = segment.x / 16;
-      const by = segment.y / 16;
+    for (const segment of this.body.getChildren()) {
+      const x = segment.x / LENGTH;
+      const y = segment.y / LENGTH;
 
-      grid[by][bx] = false;
-    });
+      grid[y][x] = false;
+    }
 
     return grid;
   }

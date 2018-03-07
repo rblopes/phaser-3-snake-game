@@ -5,23 +5,31 @@
  * Shows the player scored points.
  */
 
-import {WIDTH} from '../constants/grid';
+import {WIDTH, LENGTH} from '../constants/grid';
 import fontConfig from '../constants/bitmap-fonts';
 
 export default class Scoreboard extends Phaser.Scene {
   constructor() {
-    super({key: 'Scoreboard'});
+    super({
+      key: 'Scoreboard',
+
+      //  Align the scene viewport to the top of the screen, with a margin of
+      //  half the length of the grid unit (8px) around its edges.
+      cameras: [{
+        x: LENGTH / 2,
+        y: LENGTH / 2,
+        width: WIDTH * LENGTH,
+        height: LENGTH
+      }]
+    });
   }
 
   create(/* data */) {
-    //  Make this viewport 16px tall, aligned at the top of the screen, with a
-    //  margin of 16px from each size.
-    this.cameras.main.setViewport(8, 8, 16 * WIDTH, 16);
-
-    this.scoreLabel = this.add.dynamicBitmapText(0, 0, fontConfig.image);
+    //  Add the score numerals label.
+    this.scoreLabel = this.add.bitmapText(0, 0, fontConfig.image);
 
     //  Align this label to the right side.
-    this.gameOverLabel = this.add.image(16 * WIDTH, 0, 'game-over');
+    this.gameOverLabel = this.add.image(WIDTH * LENGTH, 0, 'game-over');
     this.gameOverLabel.setOrigin(1, 0);
 
     this.reset();

@@ -5,11 +5,11 @@
  * The food to be eaten by the snake.
  */
 
-import {WIDTH, HEIGHT} from '../constants/grid';
+import {WIDTH, HEIGHT, LENGTH} from '../constants/grid';
 
 export default class Food extends Phaser.GameObjects.Image {
   constructor(state, x, y) {
-    super(state, x * 16, y * 16, 'food').setOrigin(0);
+    super(state, x * LENGTH, y * LENGTH, 'food').setOrigin(0);
 
     this.total = 0;
 
@@ -21,9 +21,9 @@ export default class Food extends Phaser.GameObjects.Image {
   }
 
   /**
-   * We can place the food anywhere in our 40x30 grid *except* on-top of the
-   * snake, so we need to filter those out of the possible food locations. If
-   * there aren't any locations left, they've won!
+   * We can place the food anywhere in our grid *except* on-top of the snake,
+   * so we need to filter those out of the possible food locations. If there
+   * aren't any locations left, they've won!
    *
    * @return {boolean} true if the food was placed, otherwise false
    */
@@ -54,7 +54,7 @@ export default class Food extends Phaser.GameObjects.Image {
       let pos = Phaser.Math.RND.pick(validLocations);
 
       //  And place it.
-      this.setPosition(pos.x * 16, pos.y * 16);
+      this.setPosition(pos.x * LENGTH, pos.y * LENGTH);
 
       return true;
     }

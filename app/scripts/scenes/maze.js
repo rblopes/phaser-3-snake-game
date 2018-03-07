@@ -5,20 +5,28 @@
  * Where the actual game play happens.
  */
 
-import {WIDTH, HEIGHT} from '../constants/grid';
+import {WIDTH, HEIGHT, LENGTH} from '../constants/grid';
 import Food from '../objects/food';
 import Snake from '../objects/snake';
 
 export default class Maze extends Phaser.Scene {
   constructor() {
-    super({key: 'Maze'});
+    super({
+      key: 'Maze',
+
+      //  Make the viewport an exact fit of the game board, giving a margin of
+      //  half the grid length (8px) around its edges.
+      cameras: [{
+        x: LENGTH / 2,
+        y: 2 * LENGTH,
+        width: WIDTH * LENGTH,
+        height: HEIGHT * LENGTH
+      }]
+    });
   }
 
   create(/* data */) {
-    //  Resize and place this scene viewport to fit the game board, with a 8px
-    //  margin around it.
-    this.cameras.main.setViewport(8, 32, 16 * WIDTH, 16 * HEIGHT);
-
+    //  Add the game objects to the scene.
     this.food = new Food(this, 3, 4);
     this.snake = new Snake(this, 8, 8);
 
