@@ -5,21 +5,12 @@
  * The main game scene.
  */
 
-import files from '@/constants/assets';
-import fontConfig from '@/constants/bitmap-fonts';
-
 export default class Game extends Phaser.Scene {
   constructor() {
-    super({key: 'Game', files});
+    super({key: 'Game'});
   }
 
   init() {
-    //  Register the bitmap font for use on the score board.
-    this.cache.bitmapFont.add(
-      fontConfig.image,
-      Phaser.GameObjects.BitmapText.ParseRetroFont(this, fontConfig)
-    );
-
     //  Game points.
     this.points = 0;
   }
