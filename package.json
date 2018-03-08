@@ -1,7 +1,9 @@
 {
   "scripts": {
+    "clean": "gulp clean",
     "dist": "gulp dist",
-    "lint": "eslint \"**/*.js\"",
+    "lint": "eslint \"{app,gulpfile.js}/**/*.js\"",
+    "fix": "eslint \"{app,gulpfile.js}/**/*.js\" --fix",
     "start": "gulp"
   },
   "dependencies": {
