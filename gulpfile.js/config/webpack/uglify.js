@@ -1,26 +1,20 @@
 /*
- * UglifyJs plugin settings.
+ * UglifyJS Webpack plugin settings
+ * ================================
+ *
+ * For an complete reference on tweaks and compression options, check the
+ * UglifyJS plugin page.
+ *
+ * - <https://github.com/webpack-contrib/uglifyjs-webpack-plugin>
  */
 
 module.exports = {
-  parallel: true,
-  sourceMap: true,
-  uglifyOptions: {
-    output: {
-      comments: false
-    },
-    compress: {
-      /* eslint-disable camelcase */
-      comparisons: true,
-      conditionals: true,
-      dead_code: true,
-      evaluate: true,
-      if_return: true,
-      join_vars: true,
-      negate_iife: false,
-      unused: true,
-      warnings: false
-      /* eslint-enable camelcase */
-    }
-  }
+  //  Enable cache, so subsequent runs will be faster.
+  cache: true,
+
+  //  Up to 4 parallel jobs.
+  parallel: 4,
+
+  //  Output a source map after compression finished.
+  sourceMap: true
 };
