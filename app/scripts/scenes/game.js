@@ -27,8 +27,8 @@ export default class Game extends Phaser.Scene {
     this.add.image(0, 0, 'frame').setOrigin(0, 0);
 
     //  Get a reference of the scenes to start.
-    const [scoreboard, maze] = ['Scoreboard', 'Maze']
-      .map(k => this.scene.get(k));
+    const scoreboard = this.scene.get('Scoreboard');
+    const maze = this.scene.get('Maze');
 
     //  Run both scenes in parallel.
     this.scene
