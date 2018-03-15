@@ -5,8 +5,8 @@
  * The main game scene.
  */
 
-import files from '../constants/assets';
-import fontConfig from '../constants/bitmap-fonts';
+import files from '@/constants/assets';
+import fontConfig from '@/constants/bitmap-fonts';
 
 export default class Game extends Phaser.Scene {
   constructor() {

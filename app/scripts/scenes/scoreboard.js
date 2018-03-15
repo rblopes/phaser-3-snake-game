@@ -5,8 +5,8 @@
  * Shows the player scored points.
  */
 
-import {WIDTH, LENGTH} from '../constants/grid';
-import fontConfig from '../constants/bitmap-fonts';
+import {WIDTH, LENGTH} from '@/constants/grid';
+import fontConfig from '@/constants/bitmap-fonts';
 
 export default class Scoreboard extends Phaser.Scene {
   constructor() {

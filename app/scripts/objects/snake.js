@@ -5,7 +5,7 @@
  * Handles the logic and appearance of the snake in the maze.
  */
 
-import {WIDTH, HEIGHT, LENGTH} from '../constants/grid';
+import {WIDTH, HEIGHT, LENGTH} from '@/constants/grid';
 
 export default class Snake {
   constructor(state, x, y) {

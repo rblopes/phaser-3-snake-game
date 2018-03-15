@@ -5,7 +5,7 @@
  * The food to be eaten by the snake.
  */
 
-import {WIDTH, HEIGHT, LENGTH} from '../constants/grid';
+import {WIDTH, HEIGHT, LENGTH} from '@/constants/grid';
 
 export default class Food extends Phaser.GameObjects.Image {
   constructor(state, x, y) {

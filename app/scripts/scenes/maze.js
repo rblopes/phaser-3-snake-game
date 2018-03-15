@@ -5,9 +5,9 @@
  * Where the actual game play happens.
  */
 
-import {WIDTH, HEIGHT, LENGTH} from '../constants/grid';
-import Food from '../objects/food';
-import Snake from '../objects/snake';
+import {WIDTH, HEIGHT, LENGTH} from '@/constants/grid';
+import Food from '@/objects/food';
+import Snake from '@/objects/snake';
 
 export default class Maze extends Phaser.Scene {
   constructor() {
