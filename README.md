@@ -11,7 +11,9 @@
 
 ## Game Controls
 
-Use left and right arrow keys to control the snake around the board.
+Use the left (<kbd>←</kbd>) and right (<kbd>→</kbd>) arrow keys to rotate and change direction.
+
+For every five pieces of food eaten, the speed increases.
 
 
 ## Instructions for Developers
@@ -19,13 +21,6 @@ Use left and right arrow keys to control the snake around the board.
 >   NOTE: It is highly recommended that you have at least Node.js version 6.11 installed, and [Yarn](https://yarnpkg.com/) to manage this project.
 
 First, clone this repository and install the project dependencies using `yarn`. To play the sample game, just run `yarn start`.
-
-
-## Game Controls
-
-Use the left (<kbd>←</kbd>) and right (<kbd>→</kbd>) arrow keys to rotate and change direction.
-
-For every five pieces of food eaten, the speed increases.
 
 
 ## License
