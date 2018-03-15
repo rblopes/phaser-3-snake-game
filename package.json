@@ -7,12 +7,12 @@
     "start": "gulp"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.0.0-beta.40",
-    "phaser": "^3.2.0"
+    "@babel/polyfill": "^7.0.0-beta.41",
+    "phaser": "^3.2.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.40",
-    "@babel/preset-env": "^7.0.0-beta.40",
+    "@babel/core": "^7.0.0-beta.41",
+    "@babel/preset-env": "^7.0.0-beta.41",
     "babel-loader": "^8.0.0-beta.2",
     "browser-sync": "^2.23.6",
     "del": "^3.0.0",
@@ -23,8 +23,8 @@
     "html-webpack-plugin": "^3.0.6",
     "plugin-error": "^1.0.1",
     "raw-loader": "^0.5.1",
-    "uglifyjs-webpack-plugin": "^1.2.2",
-    "webpack": "^4.1.0",
+    "uglifyjs-webpack-plugin": "^1.2.3",
+    "webpack": "^4.1.1",
     "webpack-dev-middleware": "^3.0.1"
   },
   "private": true
