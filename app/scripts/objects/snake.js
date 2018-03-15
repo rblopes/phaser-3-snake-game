@@ -8,21 +8,22 @@
 import {WIDTH, HEIGHT, LENGTH} from '@/constants/grid';
 
 export default class Snake {
-  constructor(state, x, y) {
-    this.headPosition = new Phaser.Geom.Point(x, y);
+  constructor(scene, x, y) {
+    this.body = scene.add.group({
+      defaultKey: 'body',
+      createCallback: o => o.setOrigin(0)
+    });
 
-    this.body = state.add.group();
+    this.head = this.body.create(x * LENGTH, y * LENGTH);
 
-    this.head = this.body.create(x * LENGTH, y * LENGTH, 'body');
-    this.head.setOrigin(0);
+    this.direction = new Phaser.Geom.Point(LENGTH, 0);
+    this.headPosition = new Phaser.Geom.Point(0, 0);
+    this.tailPosition = new Phaser.Geom.Point(0, 0);
 
     this.alive = true;
+    this.updated = true;
     this.moveTime = 0;
     this.moveDelay = 100;
-    this.tailPosition = new Phaser.Geom.Point(x, y);
-
-    this.direction = new Phaser.Geom.Point(1, 0);
-    this.updated = true;
   }
 
   update(time) {
@@ -30,6 +31,8 @@ export default class Snake {
       this.updated = true;
       return this.move(time);
     }
+
+    return false;
   }
 
   turnLeft() {
@@ -65,16 +68,16 @@ export default class Snake {
     //  around the screen edges, so when it goes off any side it should
     //  re-appear on the opposite side.
     this.headPosition.setTo(
-      Phaser.Math.Wrap(this.headPosition.x + this.direction.x, 0, WIDTH),
-      Phaser.Math.Wrap(this.headPosition.y + this.direction.y, 0, HEIGHT)
+      Phaser.Math.Wrap(this.head.x + this.direction.x, 0, WIDTH * LENGTH),
+      Phaser.Math.Wrap(this.head.y + this.direction.y, 0, HEIGHT * LENGTH)
     );
 
     //  Update the body segments and place the last coordinate into
     //  `this.tailPosition`.
     Phaser.Actions.ShiftPosition(
       this.body.children.entries,
-      this.headPosition.x * LENGTH,
-      this.headPosition.y * LENGTH,
+      this.headPosition.x,
+      this.headPosition.y,
       1,
       this.tailPosition
     );
@@ -93,21 +96,16 @@ export default class Snake {
   }
 
   grow() {
-    this.body.create(
-      this.tailPosition.x,
-      this.tailPosition.y,
-      'body'
-    ).setOrigin(0);
+    this.body.create(this.tailPosition.x, this.tailPosition.y);
   }
 
-  collideWithFood(food) {
+  collideWithFood(food, points) {
     if (this.head.x === food.x && this.head.y === food.y) {
       this.grow();
-      food.eat();
 
-      //  For every 5 items of food eaten we'll increase the snake speed a
+      //  For every 5 pieces of food eaten we'll increase the snake speed a
       //  little.
-      if (this.moveDelay > 20 && food.total % 5 === 0) {
+      if (this.moveDelay > 20 && points % 25 === 0) {
         this.moveDelay -= 5;
       }
 

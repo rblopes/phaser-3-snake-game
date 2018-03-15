@@ -5,23 +5,25 @@
  * The main game scene.
  */
 
-import files from '@/constants/assets';
-import fontConfig from '@/constants/bitmap-fonts';
-
 export default class Game extends Phaser.Scene {
   constructor() {
-    super({key: 'Game', files});
+    super({key: 'Game'});
+
+    /**
+     *  Keep the last high score registered.
+     */
+    this.highScore = 0;
   }
 
   init() {
-    //  Register the bitmap font for use on the score board.
-    this.cache.bitmapFont.add(
-      fontConfig.image,
-      Phaser.GameObjects.BitmapText.ParseRetroFont(this, fontConfig)
-    );
+    /**
+     *  Current game score.
+     */
+    this.points = 0;
   }
 
   create(/* data */) {
+    //  Put the frame behind the maze.
     this.add.image(0, 0, 'frame').setOrigin(0, 0);
 
     //  Get a reference of the scenes to start.
@@ -30,13 +32,89 @@ export default class Game extends Phaser.Scene {
 
     //  Run both scenes in parallel.
     this.scene
-      .launch(scoreboard)
+      .launch(scoreboard, {gameScene: this})
       .launch(maze);
 
-    //  When a food gets eaten, update the score.
-    maze.events.on('FOOD_EATEN', () => scoreboard.scorePoint());
+    //  Add the game objects to the maze scene.
+    this.food = maze.addFood(3, 4);
+    this.snake = maze.addSnake(8, 8);
 
-    //  When game is over, tell the player.
-    maze.events.on('SNAKE_DEAD', () => scoreboard.showGameOver());
+    //  Create our keyboard controls.
+    this.cursors = this.input.keyboard.addKeys({
+      leftKey: Phaser.Input.Keyboard.KeyCodes.LEFT,
+      rightKey: Phaser.Input.Keyboard.KeyCodes.RIGHT
+    });
+
+    //  Count how long a key is being pressed down.
+    this.keyDownCounter = 0;
+  }
+
+  update(time) {
+    if (this.snake.alive) {
+      this.updateInput();
+      this.updateLogic(time);
+    }
+  }
+
+  //  ------------------------------------------------------------------------
+
+  updateInput() {
+    const {leftKey, rightKey} = this.cursors;
+
+    //  NOTE: Phaser still lacks a reliable method for checking when a key was
+    //  just pressed. Our last resort is to update a counter for the duration
+    //  of that key press and, based on its value, decide whether to change
+    //  the snake direction or not on the next branching logic.
+    if (leftKey.isDown || rightKey.isDown) {
+      this.keyDownCounter += 1;
+    }
+    else {
+      this.keyDownCounter = 0;
+    }
+
+    //  Check which key is pressed, then change the direction the snake is
+    //  heading.
+    if (leftKey.isDown && this.keyDownCounter < 2) {
+      this.snake.turnLeft();
+    }
+    else if (rightKey.isDown && this.keyDownCounter < 2) {
+      this.snake.turnRight();
+    }
+  }
+
+  updateLogic(time) {
+    const {food, snake} = this;
+
+    if (snake.update(time)) {
+      //  If the snake updated, we need to check for collision against food.
+      if (snake.collideWithFood(food, this.points)) {
+        this.updatePoints();
+        food.reposition(snake);
+      }
+    }
+
+    if (!snake.alive) {
+      this.endGame();
+    }
+  }
+
+  endGame() {
+    this.events.emit('snake-died');
+
+    //  Update the high score.
+    this.highScore = Math.max(this.points, this.highScore);
+
+    //  Wait for a moment and go back to the menu screen.
+    this.time.delayedCall(2500, () => {
+      this.scene
+        .stop('Scoreboard')
+        .stop('Maze')
+        .start('Menu');
+    });
+  }
+
+  updatePoints() {
+    this.points += 5;
+    this.events.emit('food-eaten', this.points);
   }
 }

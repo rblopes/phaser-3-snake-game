@@ -24,36 +24,31 @@ export default class Scoreboard extends Phaser.Scene {
     });
   }
 
+  init({gameScene}) {
+    //  Bind the maze events to update the score board.
+    gameScene.events
+      .on('food-eaten', points => this.updateScoreboard(points))
+      .on('snake-died', () => this.showGameOver());
+  }
+
   create(/* data */) {
     //  Add the score numerals label.
-    this.scoreLabel = this.add.bitmapText(0, 0, fontConfig.image);
+    this.scoreLabel = this.add.bitmapText(0, 0, fontConfig.image, '0');
 
     //  Align this label to the right side.
-    this.gameOverLabel = this.add.image(WIDTH * LENGTH, 0, 'game-over');
-    this.gameOverLabel.setOrigin(1, 0);
-
-    this.reset();
+    this.gameOverLabel =
+      this.add.bitmapText(WIDTH * LENGTH, 0, fontConfig.image, 'GAME OVER')
+        .setOrigin(1, 0)
+        .setVisible(false);
   }
 
   //  -------------------------------------------------------------------------
 
-  updateScoreboard() {
-    this.scoreLabel.text = String(this.points);
+  updateScoreboard(points) {
+    this.scoreLabel.setText(String(points));
   }
 
   showGameOver() {
-    this.gameOverLabel.visible = true;
-  }
-
-  reset() {
-    this.gameOverLabel.visible = false;
-
-    this.points = 0;
-    this.updateScoreboard();
-  }
-
-  scorePoint() {
-    this.points += 5;
-    this.updateScoreboard();
+    this.gameOverLabel.setVisible(true);
   }
 }
