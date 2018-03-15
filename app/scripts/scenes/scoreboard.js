@@ -27,7 +27,7 @@ export default class Scoreboard extends Phaser.Scene {
   init({gameScene}) {
     //  Bind the maze events to update the score board.
     gameScene.events
-      .on('food-eaten', points => this.updateScoreboard(points))
+      .on('food-eaten', points => this.setScore(points))
       .on('snake-died', () => this.showGameOver());
   }
 
@@ -44,7 +44,7 @@ export default class Scoreboard extends Phaser.Scene {
 
   //  -------------------------------------------------------------------------
 
-  updateScoreboard(points) {
+  setScore(points) {
     this.scoreLabel.setText(String(points));
   }
 
