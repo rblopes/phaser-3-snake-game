@@ -73,31 +73,7 @@ export const physics = {
   /**
    *  Enable a physics engine by default on all game scenes.
    */
-  default: false,
-
-  /**
-   *  Phaser Arcade Physics 2 parameters.
-   *
-   *  This engine becomes available under a `physics` property on game scenes.
-   */
-  // arcade: {
-  // },
-
-  /**
-   *  Matter.js parameters.
-   *
-   *  This engine becomes available under a `matter` property on game scenes.
-   */
-  // matter: {
-  // },
-
-  /**
-   *  Impact Physics Engine parameters.
-   *
-   *  This engine becomes available under a `impact` property on game scenes.
-   */
-  // impact: {
-  // }
+  default: false
 };
 
 /**
