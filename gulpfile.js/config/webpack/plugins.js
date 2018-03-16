@@ -8,8 +8,10 @@
 
 const webpack = require('webpack');
 const {pkg} = require('read-pkg-up').sync();
+const Copy = require('copy-webpack-plugin');
 const HTML = require('html-webpack-plugin');
 const UglifyJS = require('uglifyjs-webpack-plugin');
+const {dirs, dest} = require('../paths');
 
 module.exports = (env = 'development') =>
   [
@@ -36,6 +38,18 @@ module.exports = (env = 'development') =>
       description: pkg.description,
       template: './index.html'
     }),
+
+    //  Copy Plugin
+    //  -----------
+    //
+    //  Copies application assets into the bundle.
+    //
+    //  Reference:
+    //    <https://github.com/webpack-contrib/copy-webpack-plugin#readme>
+    new Copy([{
+      from: dirs.static,
+      to: dest
+    }]),
 
     //  UglifyJS
     //  --------
