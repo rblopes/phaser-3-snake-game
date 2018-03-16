@@ -1,11 +1,18 @@
-/*
- * `Game` scene
- * ============
- *
- * The main game scene.
- */
-
 export default class Game extends Phaser.Scene {
+  /**
+   *  The main game scene. It spawns the other two game scenes in parallel.
+   *  One is the score board, showing the player points and the eventual 'GAME
+   *  OVER' message. The other is the maze where the actual game action
+   *  happens. Player input and game logic updates are handled here.
+   *
+   *  This scene emits two events:
+   *    - `food-eaten`: When a food gets eaten by the snake.
+   *    - `snake-died`: When the snake collides with itself.
+   *
+   *  Those events are used to update the score board.
+   *
+   *  @extends Phaser.Scene
+   */
   constructor() {
     super({key: 'Game'});
 
@@ -15,13 +22,25 @@ export default class Game extends Phaser.Scene {
     this.highScore = 0;
   }
 
-  init() {
+  /**
+   *  Called when this scene is initialized.
+   *
+   *  @protected
+   *  @param {object} [data={}] - Initialization parameters.
+   */
+  init(/* data */) {
     /**
      *  Current game score.
      */
     this.points = 0;
   }
 
+  /**
+   *  Responsible for setting up game objects on the screen.
+   *
+   *  @protected
+   *  @param {object} [data={}] - Initialization parameters.
+   */
   create(/* data */) {
     //  Put the frame behind the maze.
     this.add.image(0, 0, 'frame').setOrigin(0, 0);
@@ -49,6 +68,13 @@ export default class Game extends Phaser.Scene {
     this.keyDownCounter = 0;
   }
 
+  /**
+   *  Handles updates to game logic, physics and game objects.
+   *
+   *  @protected
+   *  @param {number} time - Current internal clock time.
+   *  @param {number} delta - Time elapsed since last update.
+   */
   update(time) {
     if (this.snake.alive) {
       this.updateInput();
@@ -58,13 +84,18 @@ export default class Game extends Phaser.Scene {
 
   //  ------------------------------------------------------------------------
 
+  /**
+   *  Handles user input.
+   *
+   *  @private
+   */
   updateInput() {
     const {leftKey, rightKey} = this.cursors;
 
     //  NOTE: Phaser still lacks a reliable method for checking when a key was
     //  just pressed. Our last resort is to update a counter for the duration
-    //  of that key press and, based on its value, decide whether to change
-    //  the snake direction or not on the next branching logic.
+    //  of that key press and, based on its value, decide whether to process
+    //  the input or avoid it being processed repeatedly.
     if (leftKey.isDown || rightKey.isDown) {
       this.keyDownCounter += 1;
     }
@@ -82,6 +113,11 @@ export default class Game extends Phaser.Scene {
     }
   }
 
+  /**
+   *  Updates game logic.
+   *
+   *  @private
+   */
   updateLogic(time) {
     const {food, snake} = this;
 
@@ -98,6 +134,11 @@ export default class Game extends Phaser.Scene {
     }
   }
 
+  /**
+   *  Announces game over.
+   *
+   *  @private
+   */
   endGame() {
     this.events.emit('snake-died');
 
@@ -113,6 +154,11 @@ export default class Game extends Phaser.Scene {
     });
   }
 
+  /**
+   *  Updates score points.
+   *
+   *  @private
+   */
   updatePoints() {
     this.points += 5;
     this.events.emit('food-eaten', this.points);

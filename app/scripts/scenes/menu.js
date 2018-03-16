@@ -1,21 +1,20 @@
 export default class Menu extends Phaser.Scene {
   /**
-   * Show the game title and menu.
+   *  Show the game title and menu.
    *
-   * @extends Phaser.Scene
+   *  @extends Phaser.Scene
    */
   constructor() {
     super({key: 'Menu'});
   }
 
   /**
-   * Called when a scene is initialized. Method responsible for setting up the
-   * game objects on the screen.
+   *  Responsible for setting up the game objects on the screen.
    *
-   * @protected
-   * @param {object} data Initialization parameters.
+   *  @protected
+   *  @param {object} [data={}] - Initialization parameters.
    */
-  create(/* data = {} */) {
+  create(/* data */) {
     //  Save viewport center coordinates for reference.
     const x = this.cameras.main.width / 2;
     const y = this.cameras.main.height / 2;

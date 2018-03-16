@@ -1,13 +1,13 @@
-/*
- * `Snake` group
- * =============
- *
- * Handles the logic and appearance of the snake in the maze.
- */
-
 import {WIDTH, HEIGHT, LENGTH} from '@/constants/grid';
 
 export default class Snake {
+  /**
+   *  Handles the logic and appearance of the snake in the maze.
+   *
+   *  @param {Phaser.Scene} scene - The scene that owns this object.
+   *  @param {number} x - The horizontal coordinate relative to the scene viewport.
+   *  @param {number} y - The vertical coordinate relative to the scene viewport.
+   */
   constructor(scene, x, y) {
     this.body = scene.add.group({
       defaultKey: 'body',
@@ -26,6 +26,13 @@ export default class Snake {
     this.moveDelay = 100;
   }
 
+  /**
+   *  Updates the snake segments in the maze.
+   *
+   *  @public
+   *  @param {number} time - The current game clock value.
+   *  @returns {boolean} Whether the snake updated or not.
+   */
   update(time) {
     if (time >= this.moveTime) {
       this.updated = true;
@@ -35,8 +42,12 @@ export default class Snake {
     return false;
   }
 
+  /**
+   *  Makes the snake rotate counter clockwise on the next update.
+   *
+   *  @public
+   */
   turnLeft() {
-    //  Makes the snake rotate counter clockwise on the next update.
     if (this.updated) {
       this.direction.setTo(this.direction.y, -this.direction.x);
 
@@ -44,8 +55,12 @@ export default class Snake {
     }
   }
 
+  /**
+   *  Makes the snake rotate clockwise on the next update.
+   *
+   *  @public
+   */
   turnRight() {
-    //  Makes the snake rotate clockwise on the next update.
     if (this.updated) {
       this.direction.setTo(-this.direction.y, this.direction.x);
 
@@ -53,8 +68,13 @@ export default class Snake {
     }
   }
 
+  /**
+   *  Tells whether the snake run over its body or not.
+   *
+   *  @private
+   *  @returns {boolean} True if the snake collided with itself.
+   */
   hitBody() {
-    //  Tells whether the snake run over its body or not.
     return Phaser.Actions.GetFirst(
       this.body.children.entries,
       {x: this.head.x, y: this.head.y},
@@ -62,6 +82,13 @@ export default class Snake {
     );
   }
 
+  /**
+   *  Moves the snake segments around the maze.
+   *
+   *  @private
+   *  @param {number} time - The current game clock value.
+   *  @returns {boolean} Whether the snake has moved or not.
+   */
   move(time) {
     //  Update the snake position according to the direction the player wants
     //  it to move to. The `Math.Wrap` function call allows the snake to wrap
@@ -92,13 +119,27 @@ export default class Snake {
 
     //  Update the timer ready for the next movement.
     this.moveTime = time + this.moveDelay;
+
     return true;
   }
 
+  /**
+   *  Adds a new segment to the snake.
+   *
+   *  @private
+   */
   grow() {
     this.body.create(this.tailPosition.x, this.tailPosition.y);
   }
 
+  /**
+   *  Checks if the snake has collided with a piece of food.
+   *
+   *  @public
+   *  @param {Food} food - A food sprite.
+   *  @param {number} time - The player scored points.
+   *  @returns {boolean} True if the snake collided, false otherwise.
+   */
   collideWithFood(food, points) {
     if (this.head.x === food.x && this.head.y === food.y) {
       this.grow();
@@ -115,6 +156,14 @@ export default class Snake {
     return false;
   }
 
+  /**
+   *  Validates the positions on the grid where a new piece of food can be
+   *  placed.
+   *
+   *  @protected
+   *  @param {boolean.<array[]>} grid - A grid of positions to validate.
+   *  @returns {boolean.<array[]>} The updated grid.
+   */
   updateGrid(grid) {
     //  Remove all body pieces from valid positions list.
     for (const segment of this.body.getChildren()) {

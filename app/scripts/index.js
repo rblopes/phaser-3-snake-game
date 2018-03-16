@@ -1,8 +1,8 @@
 /*
- * `app` module
- * ============
+ *  `app` module
+ *  ============
  *
- * Provides the game initialization routine.
+ *  Provides the game initialization routine.
  */
 
 //  Import game instance configuration.

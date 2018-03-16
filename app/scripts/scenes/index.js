@@ -1,8 +1,8 @@
 /*
- * `states` module
- * ===============
+ *  `states` module
+ *  ===============
  *
- * Declares all present game states.
+ *  Declares all present game states.
  */
 
 export {default as Loader} from './loader';

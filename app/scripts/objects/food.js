@@ -1,13 +1,14 @@
-/*
- * `Food` sprite
- * =============
- *
- * The food to be eaten by the snake.
- */
-
 import {WIDTH, HEIGHT, LENGTH} from '@/constants/grid';
 
 export default class Food extends Phaser.GameObjects.Image {
+  /**
+   *  The food to be eaten by the snake.
+   *
+   *  @param {Phaser.Scene} scene - The scene that owns this image.
+   *  @param {number} x - The horizontal coordinate relative to the scene viewport.
+   *  @param {number} y - The vertical coordinate relative to the scene viewport.
+   *  @extends Phaser.GameObjects.Image
+   */
   constructor(scene, x, y) {
     super(scene, x * LENGTH, y * LENGTH, 'food').setOrigin(0);
 
@@ -15,11 +16,13 @@ export default class Food extends Phaser.GameObjects.Image {
   }
 
   /**
-   * We can place the food anywhere in our grid *except* on-top of the snake,
-   * so we need to filter those out of the possible food locations. If there
-   * aren't any locations left, they've won!
+   *  We can place the food anywhere in our grid *except* on-top of the snake,
+   *  so we need to filter those out of the possible food locations. If there
+   *  aren't any locations left, they've won!
    *
-   * @return {boolean} true if the food was placed, otherwise false
+   *  @public
+   *  @param {Snake} snake - The snake object.
+   *  @returns {boolean} true if the food was placed, otherwise false.
    */
   reposition(snake) {
     //  First, create a grid that assumes all positions are valid for the new
