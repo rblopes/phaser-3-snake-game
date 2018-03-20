@@ -2,15 +2,13 @@
  *  Webpack Plugins
  *  ===============
  *
- *  This module defines which plugins are used to compile the Webpack bundle.
- *  Plugins are selected according to development or production mode.
+ *  Which plugins are used by Webpack to compile the application bundle.
  */
 
 const webpack = require('webpack');
 const {pkg} = require('read-pkg-up').sync();
-const Copy = require('copy-webpack-plugin');
 const HTML = require('html-webpack-plugin');
-const UglifyJS = require('uglifyjs-webpack-plugin');
+const Copy = require('copy-webpack-plugin');
 const {dirs, dest} = require('../paths');
 
 module.exports = (env = 'development') =>
@@ -20,7 +18,8 @@ module.exports = (env = 'development') =>
     //
     //  Defines global constants at compile time.
     //
-    //  Reference: <https://webpack.js.org/plugins/define-plugin/>
+    //  Reference:
+    //  - <https://webpack.js.org/plugins/define-plugin/>
     new webpack.DefinePlugin({
       //  Required by Phaser: Enable Canvas and WebGL renderers.
       CANVAS_RENDERER: true,
@@ -32,11 +31,12 @@ module.exports = (env = 'development') =>
     //
     //  Simplifies creation of HTML files to serve Webpack bundles.
     //
-    //  Reference: <https://webpack.js.org/plugins/html-webpack-plugin/>
+    //  Reference:
+    //  - <https://webpack.js.org/plugins/html-webpack-plugin/>
     new HTML({
       title: pkg.title,
       description: pkg.description,
-      template: './index.html'
+      template: 'index.html'
     }),
 
     //  Copy Plugin
@@ -49,25 +49,5 @@ module.exports = (env = 'development') =>
     new Copy([{
       from: dirs.static,
       to: dest
-    }]),
-
-    //  UglifyJS
-    //  --------
-    //
-    //  Production mode only: Minify bundled JavaScript for distribution.
-    //
-    //  For an complete reference on tweaks and compression options, check the
-    //  UglifyJS plugin repository page.
-    //
-    //    <https://github.com/webpack-contrib/uglifyjs-webpack-plugin#readme>
-    env === 'production' && new UglifyJS({
-      //  Enable cache, so subsequent runs should be faster.
-      cache: true,
-
-      //  Up to 4 parallel jobs.
-      parallel: 4,
-
-      //  Create a source map after compression is finished.
-      sourceMap: true
-    })
+    }])
   ].filter(Boolean);
