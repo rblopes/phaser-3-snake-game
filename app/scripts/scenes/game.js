@@ -63,9 +63,6 @@ export default class Game extends Phaser.Scene {
       leftKey: Phaser.Input.Keyboard.KeyCodes.LEFT,
       rightKey: Phaser.Input.Keyboard.KeyCodes.RIGHT
     });
-
-    //  Count how long a key is being pressed down.
-    this.keyDownCounter = 0;
   }
 
   /**
@@ -92,23 +89,12 @@ export default class Game extends Phaser.Scene {
   updateInput() {
     const {leftKey, rightKey} = this.cursors;
 
-    //  NOTE: Phaser still lacks a reliable method for checking when a key was
-    //  just pressed. Our last resort is to update a counter for the duration
-    //  of that key press and, based on its value, decide whether to process
-    //  the input or avoid it being processed repeatedly.
-    if (leftKey.isDown || rightKey.isDown) {
-      this.keyDownCounter += 1;
-    }
-    else {
-      this.keyDownCounter = 0;
-    }
-
-    //  Check which key is pressed, then change the direction the snake is
-    //  heading.
-    if (leftKey.isDown && this.keyDownCounter < 2) {
+    //  Check which key was just pressed down, then change the direction the
+    //  snake is heading.
+    if (Phaser.Input.Keyboard.JustDown(leftKey)) {
       this.snake.turnLeft();
     }
-    else if (rightKey.isDown && this.keyDownCounter < 2) {
+    else if (Phaser.Input.Keyboard.JustDown(rightKey)) {
       this.snake.turnRight();
     }
   }
