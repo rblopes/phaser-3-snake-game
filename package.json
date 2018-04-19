@@ -26,12 +26,12 @@
     "plugin-error": "^1.0.1",
     "raw-loader": "^0.5.1",
     "read-pkg-up": "^3.0.0",
-    "webpack": "^4.5.0",
+    "webpack": "^4.6.0",
     "webpack-dev-middleware": "^3.1.2"
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0-beta.44",
-    "phaser": "^3.4.0"
+    "phaser": "^3.6.0"
   },
   "private": true
 }
