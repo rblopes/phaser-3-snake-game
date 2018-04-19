@@ -53,7 +53,7 @@ export default class Menu extends Phaser.Scene {
     //  Display the registered highest score of the game.
     this.add.bitmapText(x + 160, y + 80, 'font', 'HIGH SCORE')
       .setOrigin(0.5, 1);
-    this.add.bitmapText(x + 160, y + 80, 'font', `${highScore} POINTS`)
+    this.add.bitmapText(x + 160, y + 81, 'font', `${highScore} POINTS`)
       .setOrigin(0.5, 0);
   }
 }

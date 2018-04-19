@@ -21,7 +21,7 @@ export default class Loader extends Phaser.Scene {
     //  Register our custom bitmap font in he game system cache.
     this.cache.bitmapFont.add(
       fontConfig.image,
-      Phaser.GameObjects.BitmapText.ParseRetroFont(this, fontConfig)
+      Phaser.GameObjects.RetroFont.Parse(this, fontConfig)
     );
 
     //  We are done here. Launch the game menu.
