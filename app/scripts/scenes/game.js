@@ -103,6 +103,7 @@ export default class Game extends Phaser.Scene {
    *  Updates game logic.
    *
    *  @private
+   *  @param {number} time - Current internal clock time.
    */
   updateLogic(time) {
     const {food, snake} = this;

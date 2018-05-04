@@ -137,7 +137,7 @@ export default class Snake {
    *
    *  @public
    *  @param {Food} food - A food sprite.
-   *  @param {number} time - The player scored points.
+   *  @param {number} points - The player scored points.
    *  @returns {boolean} True if the snake collided, false otherwise.
    */
   collideWithFood(food, points) {

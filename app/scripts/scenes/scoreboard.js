@@ -61,6 +61,7 @@ export default class Scoreboard extends Phaser.Scene {
   /**
    *  Updates the displayed game score.
    *
+   *  @param {number} points - How many points the player scored.
    *  @private
    */
   setScore(points) {
