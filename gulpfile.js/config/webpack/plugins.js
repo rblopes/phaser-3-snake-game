@@ -11,6 +11,7 @@ const HTML = require('html-webpack-plugin');
 const Copy = require('copy-webpack-plugin');
 const {dirs, dest} = require('../paths');
 
+//  eslint-disable-next-line no-unused-vars
 module.exports = (env = 'development') =>
   [
     //  Webpack Define plugin
@@ -22,8 +23,8 @@ module.exports = (env = 'development') =>
     //  - <https://webpack.js.org/plugins/define-plugin/>
     new webpack.DefinePlugin({
       //  Required by Phaser: Enable Canvas and WebGL renderers.
-      CANVAS_RENDERER: true,
-      WEBGL_RENDERER: true
+      'typeof CANVAS_RENDERER': true,
+      'typeof WEBGL_RENDERER': true
     }),
 
     //  HTML Plugin
