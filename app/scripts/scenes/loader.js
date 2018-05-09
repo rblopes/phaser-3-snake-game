@@ -8,7 +8,7 @@ export default class Loader extends Phaser.Scene {
    *  @extends Phaser.Scene
    */
   constructor() {
-    super({key: 'Loader', files});
+    super({key: 'Loader', pack: {files}});
   }
 
   /**
