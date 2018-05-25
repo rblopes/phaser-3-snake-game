@@ -5,16 +5,14 @@
  *  Configures Webpack Middlewares for use with Browsersync.
  */
 
-const devMiddleware = require('webpack-dev-middleware');
+import devMiddleware from 'webpack-dev-middleware';
 
-module.exports = function (compiler) {
-  return [
-    devMiddleware(compiler, {
-      quiet: true,
-      stats: {
-        colors: true,
-        modules: false
-      }
-    })
-  ];
-};
+export default compiler => [
+  devMiddleware(compiler, {
+    quiet: true,
+    stats: {
+      colors: true,
+      modules: false
+    }
+  })
+];

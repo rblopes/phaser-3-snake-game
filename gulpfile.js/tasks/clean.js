@@ -6,10 +6,8 @@
  *  creating a fresh distribution build.
  */
 
-const del = require('del');
-const {dest} = require('../config/paths');
+import del from 'del';
+import {dest} from '../config/paths';
 
-const clean = () => del([dest]);
+export const clean = () => del([dest]);
 clean.description = `Dispose of contents from '${dest}' directory.`;
-
-module.exports = clean;

@@ -9,11 +9,11 @@
  *    <https://webpack.js.org/configuration/>
  */
 
-const {src, dirs, dest} = require('../paths');
-const rules = require('./rules');
-const plugins = require('./plugins');
+import {src, dirs, dest} from '../paths';
+import rules from './rules';
+import plugins from './plugins';
 
-module.exports = (env = 'development') => ({
+export default (env = 'development') => ({
   //  Enables Webpack optimizations for `development` or `production` modes.
   mode: env,
 

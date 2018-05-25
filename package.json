@@ -20,6 +20,7 @@
     "eslint": "^4.19.1",
     "eslint-config-xo": "^0.22.2",
     "eslint-loader": "^2.0.0",
+    "esm": "^3.0.38",
     "fancy-log": "^1.3.2",
     "gulp": "^4.0.0",
     "html-webpack-plugin": "^3.2.0",

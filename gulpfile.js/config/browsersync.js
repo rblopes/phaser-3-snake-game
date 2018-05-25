@@ -8,9 +8,9 @@
  *    <https://browsersync.io/docs/options>
  */
 
-const {dirs} = require('./paths');
+import {dirs} from './paths';
 
-module.exports = {
+export default {
   ui: false,
   notify: false,
   ghostMode: false,

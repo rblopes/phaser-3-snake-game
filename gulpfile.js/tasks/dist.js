@@ -5,11 +5,9 @@
  *  Bundle the application contents for distribution.
  */
 
-const gulp = require('gulp');
-const clean = require('./clean');
-const compile = require('./compile');
+import {series} from 'gulp';
+import {clean} from './clean';
+import {compile} from './compile';
 
-const dist = gulp.series(clean, compile);
+export const dist = series(clean, compile);
 dist.description = `Bundle application contents for distribution.`;
-
-module.exports = dist;

@@ -5,14 +5,16 @@
  *  Which plugins are used by Webpack to compile the application bundle.
  */
 
-const webpack = require('webpack');
-const {pkg} = require('read-pkg-up').sync();
-const HTML = require('html-webpack-plugin');
-const Copy = require('copy-webpack-plugin');
-const {dirs, dest} = require('../paths');
+import webpack from 'webpack';
+import rpu from 'read-pkg-up';
+import HTML from 'html-webpack-plugin';
+import Copy from 'copy-webpack-plugin';
+import {dirs, dest} from '../paths';
+
+const {pkg} = rpu.sync();
 
 //  eslint-disable-next-line no-unused-vars
-module.exports = (env = 'development') =>
+export default (env = 'development') =>
   [
     //  Webpack Define plugin
     //  ---------------------

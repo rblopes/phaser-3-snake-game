@@ -5,9 +5,9 @@
  *  How sources are processed by Webpack.
  */
 
-const {dirs} = require('../paths');
+import {dirs} from '../paths';
 
-module.exports = [
+export default [
   //  JavaScript Application Modules
   //  ------------------------------
   //

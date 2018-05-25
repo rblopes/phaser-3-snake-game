@@ -2,7 +2,7 @@
  *  Creates a configured Webpack instance.
  */
 
-const webpack = require('webpack');
-const config = require('../config/webpack');
+import webpack from 'webpack';
+import config from '../config/webpack';
 
-module.exports = (env = 'development') => webpack(config(env));
+export default (env = 'development') => webpack(config(env));
