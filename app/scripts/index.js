@@ -6,7 +6,7 @@
  */
 
 //  Import game instance configuration.
-import * as config from '@/constants/config';
+import * as config from '@/config';
 
 //  Boot the game.
 export function boot() {
