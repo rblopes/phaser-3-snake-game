@@ -2,13 +2,13 @@
 
 A [Phaser 3][phsr] demonstration project powered by [Gulp][gulp] and [Webpack][wbpk], based on the tutorial titled "Snake Plissken", published on [Phaser World #85][pw85].
 
+>   NOTE: This repository is **not** a Phaser 3 project template. If you're looking for a easier way to start a new game project from scratch, try [`generator-phaser-plus`][gpp_].
+
 <details>
     <summary>Screenshots</summary>
     <div align=center><img alt="Screenshot" src="screenshot-1.png"></div>
     <div align=center><img alt="Screenshot" src="screenshot-2.png"></div>
 </details>
-
->   NOTE: This repository is **not** a Phaser 3 project template. If you're looking for a easier way to start a new game project from scratch, try [`generator-phaser-plus`][gpp_].
 
 
 ## Game Controls
