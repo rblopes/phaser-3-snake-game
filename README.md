@@ -2,7 +2,7 @@
 
 A [Phaser 3][phsr] demonstration project powered by [Gulp][gulp] and [Webpack][wbpk], based on the tutorial titled "Snake Plissken", published on [Phaser World #85][pw85].
 
->   NOTE: This repository is **not** a Phaser 3 project template. If you're looking for a easier way to start a new game project from scratch, try [`generator-phaser-plus`][gpp_].
+>   NOTE: This repository is **not** a Phaser 3 project template. If you're looking for a easier way to start a new game project from scratch, [`generator-phaser-plus`][gpp_] is your best bet.
 
 <details>
     <summary>Screenshots</summary>
@@ -20,9 +20,9 @@ For every five pieces of food eaten, the speed increases.
 
 ## Instructions for Developers
 
->   NOTE: It is highly recommended that you have at least Node.js version 6.11 installed, and [Yarn](https://yarnpkg.com/) to manage this project.
+>   NOTE: It is highly recommended that you have at least Node.js version 10.16 installed and [Yarn](https://yarnpkg.com/) to use with this project.
 
-First, clone this repository and install the project dependencies using `yarn`. To play the sample game, just run `yarn start`.
+Clone this repository and install the project dependencies using `yarn`. To play the sample game, just run `yarn start`.
 
 
 ## License
