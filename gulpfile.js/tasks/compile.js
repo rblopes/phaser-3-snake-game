@@ -14,6 +14,7 @@ export const compile = done => {
     if (err) {
       throw new PluginError('webpack', err);
     }
+
     log.info(
       `[webpack]\n${stats.toString({
         colors: true,
@@ -23,4 +24,5 @@ export const compile = done => {
     done();
   });
 };
+
 compile.description = `Compile scripts in production mode using Webpack.`;

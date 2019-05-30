@@ -18,4 +18,5 @@ export const serve = () => {
 
   server.init(config);
 };
+
 serve.description = `Create a Browsersync instance for live development.`;
