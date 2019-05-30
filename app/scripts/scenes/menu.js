@@ -44,6 +44,7 @@ export default class Menu extends Phaser.Scene {
       startButton.width + 32,
       startButton.height + 32
     )
+      .setOrigin(0, 0)
       .setInteractive()
       .once('pointerup', () => this.scene.start('Game'));
 
