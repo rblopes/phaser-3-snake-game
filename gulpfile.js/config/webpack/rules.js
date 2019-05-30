@@ -28,7 +28,8 @@ export default [
             targets: {
               browsers: 'last 2 versions'
             },
-            useBuiltIns: 'usage'
+            useBuiltIns: 'usage',
+            corejs: 3
           }
         ]
       ]

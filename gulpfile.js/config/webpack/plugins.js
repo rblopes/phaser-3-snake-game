@@ -11,7 +11,7 @@ import HTML from 'html-webpack-plugin';
 import Copy from 'copy-webpack-plugin';
 import {dirs, dest} from '../paths';
 
-const {pkg} = rpu.sync();
+const {package: pkg} = rpu.sync();
 
 //  eslint-disable-next-line no-unused-vars
 export default (env = 'development') =>
