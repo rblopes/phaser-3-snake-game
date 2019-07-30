@@ -20,7 +20,7 @@ For every five pieces of food eaten, the speed increases.
 
 ## Instructions for Developers
 
->   NOTE: It is highly recommended that you have at least Node.js version 10.16 installed and [Yarn](https://yarnpkg.com/) to use with this project.
+>   NOTE: It is highly recommended that you have the latest long-term support (LTS) release of Node.js installed to use this project. [Yarn](https://yarnpkg.com/) is the preferred package manager to manage dependencies.
 
 Clone this repository and install the project dependencies using `yarn`. To play the sample game, just run `yarn start`.
 
