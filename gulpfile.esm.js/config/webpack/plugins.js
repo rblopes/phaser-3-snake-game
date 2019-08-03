@@ -24,9 +24,12 @@ export default (env = 'development') =>
     //  Reference:
     //  - <https://webpack.js.org/plugins/define-plugin/>
     new webpack.DefinePlugin({
-      //  Required by Phaser: Enable Canvas and WebGL renderers.
       'typeof CANVAS_RENDERER': true,
-      'typeof WEBGL_RENDERER': true
+      'typeof WEBGL_RENDERER': true,
+      'typeof EXPERIMENTAL': false,
+      'typeof FEATURE_SOUND': true,
+      'typeof PLUGIN_CAMERA3D': false,
+      'typeof PLUGIN_FBINSTANT': false
     }),
 
     //  HTML Plugin
