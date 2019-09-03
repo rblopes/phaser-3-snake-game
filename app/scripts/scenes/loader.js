@@ -1,4 +1,3 @@
-import files from '@/constants/assets';
 import fontConfig from '@/constants/bitmap-fonts';
 
 export default class Loader extends Phaser.Scene {
@@ -8,16 +7,25 @@ export default class Loader extends Phaser.Scene {
    *  @extends Phaser.Scene
    */
   constructor() {
-    super({key: 'Loader', pack: {files}});
+    super({key: 'Loader'});
   }
 
   /**
-   *  Called when this scene is initialized.
+   *  Declare which game assets need to be loaded.
+   *
+   *  @protected
+   */
+  preload() {
+    this.load.image(['body', 'food', 'font', 'frame', 'title']);
+  }
+
+  /**
+   *  Set up and launch the main scene.
    *
    *  @protected
    *  @param {object} [data={}] - Initialization parameters.
    */
-  init(/* data */) {
+  create(/* data */) {
     //  Register our custom bitmap font in he game system cache.
     this.cache.bitmapFont.add(
       fontConfig.image,
